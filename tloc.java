@@ -12,12 +12,20 @@ public class tloc {
         for (String line : lines) {
             System.out.println(line);
         }
-        System.out.println(lines.size());
+        System.out.println("Lines of code (LOCs): " + lines.size());
     }
 
-    // Verify whether the line is a line of code and return as boolean.
-    // Return false when: blank, single line comment, (multiline comment opening, body or closing).
-    boolean IsLoc(String line) {
+    /**
+     * The function IsLoc checks if a given line of code is a valid line of code or not.
+     * 
+     * Verify whether the line is a line of code and return as boolean.
+     * Return false when: blank, single line comment, (multiline comment opening, body or closing).
+     * 
+     * @param line The `line` parameter is a string that represents a line of code or text.
+     * @return The method is returning a boolean value. If the input line is blank (empty or contains
+     * only whitespace), it returns false. Otherwise, it returns true.
+     */
+    public static boolean IsLoc(String line) {
         if (line.isBlank())
             return false;
         
@@ -35,8 +43,14 @@ public class tloc {
         //      This should return a valid LOC.
     }
 
-    // Get the lines of code from the file.
-    // The blank lines and lines that are uniquely comments are removed.
+    /**
+     * The function `GetLinesInFile` reads a file line by line and returns a linked list containing
+     * only the lines that meet the conditions to be considered a line of code.
+     * 
+     * @param filePath The `filePath` parameter is a `String` that represents the path to the file from
+     * which we want to read the lines.
+     * @return The method is returning a LinkedList of Strings.
+     */
     LinkedList<String> GetLinesInFile(String filePath) {
         FileReader fileReader;
         BufferedReader reader = null;
