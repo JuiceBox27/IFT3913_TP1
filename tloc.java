@@ -32,7 +32,7 @@ public class tloc {
         return true;
 
         // Trying to match the regex for single comments
-        // return !(line.matches("(//"));
+        // return !(line.matches("//.+"));
 
         // The next idea in determining whether a line is a line of code:
         // - Have a boolean 'isMultiline' that is set 'true' when an multiline comment opening '/*' is matched
