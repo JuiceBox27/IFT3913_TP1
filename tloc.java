@@ -28,8 +28,18 @@ public class tloc {
     public static boolean IsLoc(String line) {
         if (line.isBlank())
             return false;
+
+        if (line.matches("\s*//.*"))
+            return false;
+
+        if (line.matches("\s*/\\*.*"))
+            return false;
         
+        if (line.matches(".*\\*/\s*"))
+            return false;
+
         return true;
+        // return (!line.contains("//") && !line.contains("/*"));
 
         // Trying to match the regex for single comments
         // return !(line.matches("//.+"));
