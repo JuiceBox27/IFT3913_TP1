@@ -9,6 +9,8 @@ public class tloc {
         
         LinkedList<String> lines = myTloc.GetLinesInFile("SimpleExampleFile.java");
 
+
+        System.out.println("--------Result--------");
         for (String line : lines) {
             System.out.println(line);
         }
@@ -16,41 +18,37 @@ public class tloc {
     }
 
     /**
-     * The function IsLoc checks if a given line of code is a valid line of code or not.
+     * The function `parseLoc` removes comments from a given line of code, taking into account both
+     * single-line and multi-line comments.
      * 
-     * Verify whether the line is a line of code and return as boolean.
-     * Return false when: blank, single line comment, (multiline comment opening, body or closing).
-     * 
-     * @param line The `line` parameter is a string that represents a line of code or text.
-     * @return The method is returning a boolean value. If the input line is blank (empty or contains
-     * only whitespace), it returns false. Otherwise, it returns true.
+     * @param line The `line` parameter is a string representing a line of code or a comment.
+     * @param lines The `lines` parameter is a `LinkedList` of strings.
+     * @return The method is returning a modified version of the input line.
      */
-    public static boolean IsLoc(String line) {
-        if (line.isBlank())
-            return false;
+    public static String parseLoc(String line, LinkedList<String> lines) {
+        if (line.matches(".*//.*")) {
+            line = line.split("//")[0];
+        }
 
-        if (line.matches("\s*//.*"))
-            return false;
+        if (line.matches(".*/\\*.*\\\\*/.*")) {
+            String [] lineParts = line.split("/\\*.*\\\\*/");
 
-        if (line.matches("\s*/\\*.*"))
-            return false;
-        
-        if (line.matches(".*\\*/\s*"))
-            return false;
+            line = (lineParts.length == 0) ? line = "" : lineParts[0] + ((lineParts.length == 1) ? "" : lineParts[1]);
+        }
 
-        return true;
-        // return (!line.contains("//") && !line.contains("/*"));
+        if (line.matches(".*/\\*.*"))
+            line = line.split("/\\*")[0];
 
-        // Trying to match the regex for single comments
-        // return !(line.matches("//.+"));
+        if (line.matches(".*\\*/.*")) {
+            String [] lineParts = line.split("\\*/");
 
-        // The next idea in determining whether a line is a line of code:
-        // - Have a boolean 'isMultiline' that is set 'true' when an multiline comment opening '/*' is matched
-        // - Toggle the boolean to 'false' when the multiline comment closing '*/' but still return false
-        // Return false if the boolean 'isMultiline' is true.
-        // An issue that will occur is the multiline comment possibly being fitted in code 
-        //      (ex.: in the declaration of a variable: int /* comment in declaration */ myInt = 0;
-        //      This should return a valid LOC.
+            line = lines.pollLast();
+
+            if (lineParts.length > 1)
+                line += lineParts[1];
+        }
+
+        return line;
     }
 
     /**
@@ -73,7 +71,9 @@ public class tloc {
             reader = new BufferedReader(fileReader);
 
             while ((line = reader.readLine()) != null) {
-                if (IsLoc(line)) {
+                line = parseLoc(line, lines);
+
+                if (!line.isBlank()) {
                     lines.add(line);
                 }
             }
