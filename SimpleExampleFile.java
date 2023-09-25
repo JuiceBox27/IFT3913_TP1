@@ -9,15 +9,9 @@ public class SimpleExampleFile {
 
         System.out.println("Hello World");
 
+        /* A single line with only a comment block. */
+
         /* Multiline comment start
-
-
-
-
-
-
-
-
 
 
         multiline comment end */
