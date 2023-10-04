@@ -10,7 +10,7 @@ public class tloc {
         LinkedList<String> lines = myTloc.GetLinesInFile("SimpleExampleFile.java");
 
 
-        System.out.println("--------Result--------");
+        System.out.println("--------Lines of Code--------");
         for (String line : lines) {
             System.out.println(line);
         }
