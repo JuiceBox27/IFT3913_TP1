@@ -1,0 +1,4 @@
+path, package, class, tLOCs, assertions, tcmp
+testFiles\SimpleExampleTests.java, testFiles, SimpleExampleTests, 29, 10, 2.9
+testFiles\subFolder1\SimpleExampleFile.java, testFiles.subFolder1, SimpleExampleFile, 11, 0, Infinity
+testFiles\subFolder1\subFolder1a\SimpleExampleFile1a.java, testFiles.subFolder1.subFolder1a, SimpleExampleFile1a, 11, 0, Infinity

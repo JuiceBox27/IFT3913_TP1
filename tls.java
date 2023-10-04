@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,13 +12,14 @@ public class tls {
         File file = new File("testFiles");
         List<TestFile> tlsFiles = new ArrayList<TestFile>();
         
-        // tlsFiles = tlsFilesInDirectory(file);
         tlsFiles = tlsFilesInDirectory(file, tlsFiles);
 
         System.out.println("path, package, class, tLOCs, assertions, tcmp");
         for (TestFile testFile : tlsFiles) {
             System.out.println(testFile.toString());
         }
+
+        createCSV(tlsFiles);
 
         System.out.println("Number of test files: " + tlsFiles.size());
     }
@@ -117,6 +119,36 @@ public class tls {
      */
     public static double calculateTCMP(int totalLOCs, int totalAssertions) {
         return (double)totalLOCs / (double)totalAssertions;
+    }
+
+    /**
+     * The function creates a CSV file and writes the contents of a list of TestFile objects to it.
+     * 
+     * @param testFiles A list of TestFile objects.
+     * @return The method is returning a File object.
+     */
+    public static File createCSV(List<TestFile> testFiles) {
+        File outputFile = new File("test.csv");
+
+        try {
+            FileWriter fileWriter;
+
+            outputFile.createNewFile();
+            fileWriter = new FileWriter(outputFile);
+
+            fileWriter.append("path, package, class, tLOCs, assertions, tcmp\n");
+
+            for (TestFile testFile : testFiles) {
+                fileWriter.append(testFile.toString() + "\n");
+            }
+
+            fileWriter.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return outputFile;
     }
 }
 
