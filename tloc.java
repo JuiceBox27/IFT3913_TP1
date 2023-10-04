@@ -1,13 +1,16 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
 
 public class tloc {
+    File file;
+
     public static void main(String[] args) {
-        tloc myTloc = new tloc();
+        tloc myTloc = new tloc(new File("SimpleExampleFile.java"));
         
-        LinkedList<String> lines = myTloc.GetLinesInFile("SimpleExampleFile.java");
+        LinkedList<String> lines = myTloc.getLOCsInFile("SimpleExampleTests.java");
 
 
         System.out.println("--------Lines of Code--------");
@@ -15,6 +18,10 @@ public class tloc {
             System.out.println(line);
         }
         System.out.println("Lines of code (LOCs): " + lines.size());
+    }
+
+    public tloc(File file) {
+        this.file = file;
     }
 
     /**
@@ -51,6 +58,10 @@ public class tloc {
         return line;
     }
 
+    public static int getLOCsInFile(File file) {
+        return getLOCsInFile(file.getPath()).size();
+    }
+
     /**
      * The function `GetLinesInFile` reads a file line by line and returns a linked list containing
      * only the lines that meet the conditions to be considered a line of code.
@@ -59,7 +70,7 @@ public class tloc {
      * which we want to read the lines.
      * @return The method is returning a LinkedList of Strings.
      */
-    LinkedList<String> GetLinesInFile(String filePath) {
+    public static LinkedList<String> getLOCsInFile(String filePath) {
         FileReader fileReader;
         BufferedReader reader = null;
         LinkedList<String> lines = new LinkedList<String>();

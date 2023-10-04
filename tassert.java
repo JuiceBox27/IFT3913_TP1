@@ -4,17 +4,22 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class tassert {
-    public static void main(String[] args) {
-        tloc myTloc = new tloc();
-        tassert myTassert = new tassert();
+    File file;
 
-        LinkedList<String> assertions = myTassert.GetAssertionsInFile("SimpleExampleTests.java");
+    public static void main(String[] args) {
+        tassert myTassert = new tassert(new File("SimpleExampleTests.java"));
+
+        LinkedList<String> assertions = myTassert.getAssertionsInFile("SimpleExampleTests.java");
 
         System.out.println("--------Assertions--------");
         for (String assertion : assertions) {
             System.out.println(assertion);
         }
         System.out.println("Number of assertions: " + assertions.size());
+    }
+
+    public tassert(File file) {
+        this.file = file;
     }
 
     /**
@@ -36,6 +41,10 @@ public class tassert {
         return false;
     }
 
+    public static int getAssertionsInFile(File file) {
+        return getAssertionsInFile(file.getPath()).size();
+    }
+
     /**
      * The function `GetAssertionsInFile` reads a file line by line and returns a linked list
      * containing all the assertions found in the file.
@@ -44,7 +53,7 @@ public class tassert {
      * which we want to extract assertions.
      * @return The method is returning a LinkedList of Strings.
      */
-    LinkedList<String> GetAssertionsInFile(String filePath) {
+    public static LinkedList<String> getAssertionsInFile(String filePath) {
         Scanner reader = null;
         LinkedList<String> assertions = new LinkedList<String>();
 
