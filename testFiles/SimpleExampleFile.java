@@ -1,3 +1,4 @@
+package testFiles;
 public class SimpleExampleFile {
     public static void main(String[] args) {
         // Single line comment

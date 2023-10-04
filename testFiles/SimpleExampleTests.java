@@ -1,4 +1,4 @@
-package mypackage.mypackage.mypackage;
+package testFiles;
 
 import org.junit.Test;
 

@@ -1,24 +1,34 @@
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.MatchResult;
-import java.util.stream.Stream;
 
 public class tls {
-    File file;
-
     public static void main(String[] args) {
-        File file = new File("SimpleExampleTests.java");
-        TestFile myTestFile = tlsFile(file);
+        File file = new File("testFiles");
+        List<TestFile> tlsFiles = tlsFilesInDirectory(file);
 
 
         System.out.println("path, package, class, tLOCs, assertions, tcmp");
-        System.out.println(myTestFile.toString());
+        for (TestFile testFile : tlsFiles) {
+            System.out.println(testFile.toString());
+        }
     }
 
-    public tls (File file) {
-        this.file = file;
+    public static List<TestFile> tlsFilesInDirectory(File file) {
+        List<TestFile> testFiles = new ArrayList<TestFile>();
+        
+        if (file.isDirectory()) {
+            File[] files = file.listFiles();
+            for (File testFile : files) {
+                System.out.println(testFile.getPath());
+                testFiles.add(tlsFile(testFile));
+            }
+        }
+
+        return testFiles;
     }
 
     public static TestFile tlsFile(File testFile) {
