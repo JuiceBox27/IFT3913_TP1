@@ -17,6 +17,13 @@ public class tassert {
         System.out.println("Number of assertions: " + assertions.size());
     }
 
+    /**
+     * The function checks if a given string contains any assertion methods commonly used in JUnit
+     * testing.
+     * 
+     * @param next The "next" parameter is a string that represents the next line of code in a program.
+     * @return The method is returning a boolean value.
+     */
     static boolean isAssertion(String next) {
         if (next.matches(".*(?<!org.junit.Assert.)"
                         + "(assertTrue|assertFalse"
@@ -29,6 +36,14 @@ public class tassert {
         return false;
     }
 
+    /**
+     * The function `GetAssertionsInFile` reads a file line by line and returns a linked list
+     * containing all the assertions found in the file.
+     * 
+     * @param filePath The `filePath` parameter is a string that represents the path to the file from
+     * which we want to extract assertions.
+     * @return The method is returning a LinkedList of Strings.
+     */
     LinkedList<String> GetAssertionsInFile(String filePath) {
         Scanner reader = null;
         LinkedList<String> assertions = new LinkedList<String>();
