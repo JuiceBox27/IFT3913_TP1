@@ -1,5 +1,5 @@
-package testFiles;
-public class SimpleExampleFile {
+package testFiles.subFolder1.subFolder1a;
+public class SimpleExampleFile1a {
     public static void main(String[] args) {
         // Single line comment
         int myInt0 = 0; // Singe line comment at end of line
