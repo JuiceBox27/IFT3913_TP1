@@ -67,7 +67,7 @@ public class tassert {
                 if (isAssertion(assertion)) {
                     assertions.add(assertion);
                 }
-                System.out.println(assertion);
+                // System.out.println(assertion);
             }
 
             reader.close();

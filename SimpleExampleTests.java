@@ -1,3 +1,5 @@
+package mypackage.mypackage.mypackage;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;
