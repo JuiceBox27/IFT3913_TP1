@@ -16,13 +16,6 @@ public class SimpleExampleFile {
 
 
 
-
-
-
-
-
-
-
         multiline comment end */
 
     }

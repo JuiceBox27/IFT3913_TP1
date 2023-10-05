@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileFilter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,7 +10,8 @@ import java.util.stream.Stream;
 
 public class tls {
     public static void main(String[] args) {
-        File file = new File("testFiles");
+        // File file = new File("../jfreechart/src/test/java/org/jfree/chart/title");
+        File file = new File("../jfreechart/src/test");
         List<TestFile> tlsFiles = new ArrayList<TestFile>();
         
         tlsFiles = tlsFilesInDirectory(file, tlsFiles);
@@ -22,24 +24,41 @@ public class tls {
         createCSV(tlsFiles);
 
         System.out.println("Number of test files: " + tlsFiles.size());
-    }
 
+        // System.out.println(tloc.getLOCsInFile(file.getPath()));
+    }
+    
     /**
-     * The function recursively searches for TLS files in a directory and adds them to a list.
+     * The function `tlsFilesInDirectory` recursively searches for Java files in a directory and adds
+     * them to a list of `TestFile` objects.
      * 
-     * @param file The "file" parameter represents the directory from which you want to retrieve the
+     * @param file The "file" parameter is the directory or file from which you want to retrieve the
      * TLS files.
-     * @param testFiles The parameter `testFiles` is a list of `TestFile` objects.
-     * @return The method is returning a List<TestFile> containing all the test files found in the
-     * given directory and its subdirectories.
+     * @param testFiles A list of TestFile objects that will be populated with the TLS files found in
+     * the directory.
+     * @return The method `tlsFilesInDirectory` returns a `List<TestFile>`.
      */
     public static List<TestFile> tlsFilesInDirectory(File file, List<TestFile> testFiles) {
-        for (File subFile : file.listFiles()) {
-            if (subFile.isDirectory()) {
-                Stream.concat(testFiles.stream(), tlsFilesInDirectory(subFile, testFiles).stream()).toList();
-            } else {
-                testFiles.add(tlsFile(subFile));
+        FileFilter filter = new FileFilter() {
+                @Override
+                public boolean accept(File pathname) {
+                    return pathname.toString().endsWith("java") | pathname.isDirectory();
+                }
+            };
+
+        if (file.isDirectory()) {
+            for (File subFile : file.listFiles(filter)) {
+                System.out.println(subFile);
+                if (subFile.isDirectory()) {
+                    Stream.concat(testFiles.stream(), tlsFilesInDirectory(subFile, testFiles).stream()).toList();
+                } else {
+                    testFiles.add(tlsFile(subFile));
+                }
             }
+
+        }
+        else {
+            testFiles.add(tlsFile(file));
         }
 
         return testFiles;
@@ -94,7 +113,7 @@ public class tls {
     public static String parseClassName(File testFile) {
         try {
             Scanner scanner = new Scanner(testFile);
-            String className = scanner.findAll("class\s*.*(\\{|\n)")
+            String className = scanner.findAll("class\s+.*(\\{|\n.*)")
                                     .map(MatchResult::group).findFirst().get()
                                     .split(".*class\s*")[1].split("\s*\\{.*")[0];
 
