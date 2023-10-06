@@ -1,0 +1,5 @@
+Premièrement on va collecter quelques informations.
+Il y a 359 fichiers de test dans le projet jfreechart. Je vais ensuite énumérer le nombre de fichiers suspects selon les trois pourcentages proposés.
+1%: 
+5%:
+10%:

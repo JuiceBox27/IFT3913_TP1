@@ -5,7 +5,8 @@
             "name": "tropcomp",
             "request": "launch",
             "mainClass": "tp1.tropcomp",
-            "projectName": "TP1_f3bfa4a3"
+            "projectName": "TP1_f3bfa4a3",
+            "args": "-o test2.csv ../jfreechart/src/test 10"
         },
         {
             "type": "java",
