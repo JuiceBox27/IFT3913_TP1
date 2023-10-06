@@ -10,14 +10,20 @@ import java.util.stream.Stream;
 
 public class tls {
     public static void main(String[] args) {
-        execute(args);
-        // System.out.println("Number of test files: " + tlsFiles.size());
+        List<TestFile> tlsFiles = execute(args);
+        System.out.println("Number of test files: " + tlsFiles.size());
+
+        writeToCmd(tlsFiles); //Output to command line.
+
+        if (args.length == 3) {
+            createCSV(tlsFiles, args[1]);
+        }
     }
 
-    public static void execute(String[] userInputs) {
+    public static List<TestFile> execute(String[] userInputs) {
         // Verify that the user has inputted the appropriate amount of arguments.
-        if (userInputs.length != 1 && userInputs.length != 3)
-            return;
+        if (userInputs.length != 1 && userInputs.length !=3)// || (userInputs.length != 3 && userInputs[0] != "-o"))
+            return null;
 
         List<TestFile> tlsFiles = new ArrayList<TestFile>();
         String inputPath = userInputs.length == 1 ? userInputs[0] : userInputs[2];
@@ -25,11 +31,7 @@ public class tls {
             
         tlsFiles = tlsFilesInDirectory(file, tlsFiles);
 
-        writeToCmd(tlsFiles); //Output to command line.
-
-        if (userInputs.length == 3) {
-            createCSV(tlsFiles, userInputs[1]);
-        }
+        return tlsFiles;
     }
 
     public static void writeToCmd(List<TestFile> tlsFiles) {

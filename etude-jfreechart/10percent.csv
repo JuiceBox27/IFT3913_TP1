@@ -1,0 +1,34 @@
+path, package, class, tLOCs, assertions, tcmp
+..\..\jfreechart\src\test\java\org\jfree\chart\AreaChartTest.java, org.jfree.chart, AreaChartTest, 96, 8, 12.0
+..\..\jfreechart\src\test\java\org\jfree\chart\BarChartTest.java, org.jfree.chart, BarChartTest, 93, 5, 18.6
+..\..\jfreechart\src\test\java\org\jfree\chart\GanttChartTest.java, org.jfree.chart, GanttChartTest, 175, 3, 58.333333333333336
+..\..\jfreechart\src\test\java\org\jfree\chart\internal\SerialUtilsTest.java, org.jfree.chart.internal, SerialUtilsTest, 72, 5, 14.4
+..\..\jfreechart\src\test\java\org\jfree\chart\LineChartTest.java, org.jfree.chart, LineChartTest, 89, 8, 11.125
+..\..\jfreechart\src\test\java\org\jfree\chart\MeterChartTest.java, org.jfree.chart, MeterChartTest, 22, 0, Infinity
+..\..\jfreechart\src\test\java\org\jfree\chart\PieChartTest.java, org.jfree.chart, PieChartTest, 38, 2, 19.0
+..\..\jfreechart\src\test\java\org\jfree\chart\plot\CombinedDomainCategoryPlotTest.java, org.jfree.chart.plot, CombinedDomainCategoryPlotTest implements ChartChangeListener, 161, 9, 17.88888888888889
+..\..\jfreechart\src\test\java\org\jfree\chart\plot\CombinedDomainXYPlotTest.java, org.jfree.chart.plot, CombinedDomainXYPlotTest implements ChartChangeListener, 163, 10, 16.3
+..\..\jfreechart\src\test\java\org\jfree\chart\plot\CombinedRangeCategoryPlotTest.java, org.jfree.chart.plot, CombinedRangeCategoryPlotTest implements ChartChangeListener, 161, 8, 20.125
+..\..\jfreechart\src\test\java\org\jfree\chart\plot\CombinedRangeXYPlotTest.java, org.jfree.chart.plot, CombinedRangeXYPlotTest implements ChartChangeListener, 157, 9, 17.444444444444443
+..\..\jfreechart\src\test\java\org\jfree\chart\plot\dial\MyDialLayerChangeListener.java, org.jfree.chart.plot.dial, MyDialLayerChangeListener implements DialLayerChangeListener, 8, 0, Infinity
+..\..\jfreechart\src\test\java\org\jfree\chart\plot\MyPlotChangeListener.java, org.jfree.chart.plot, for testing plot events.
+ */, 19, 0, Infinity
+..\..\jfreechart\src\test\java\org\jfree\chart\renderer\category\BoxAndWhiskerRendererTest.java, org.jfree.chart.renderer.category, BoxAndWhiskerRendererTest, 398, 38, 10.473684210526315
+..\..\jfreechart\src\test\java\org\jfree\chart\renderer\RendererChangeDetector.java, org.jfree.chart.renderer, for detecting whether or not a renderer has generated
+ * a, 19, 0, Infinity
+..\..\jfreechart\src\test\java\org\jfree\chart\renderer\xy\RendererXYPackageUtils.java, org.jfree.chart.renderer.xy, RendererXYPackageUtils, 31, 0, Infinity
+..\..\jfreechart\src\test\java\org\jfree\chart\ScatterPlotTest.java, org.jfree.chart, ScatterPlotTest, 84, 4, 21.0
+..\..\jfreechart\src\test\java\org\jfree\chart\StackedAreaChartTest.java, org.jfree.chart, StackedAreaChartTest, 90, 5, 18.0
+..\..\jfreechart\src\test\java\org\jfree\chart\StackedBarChartTest.java, org.jfree.chart, StackedBarChartTest, 92, 5, 18.4
+..\..\jfreechart\src\test\java\org\jfree\chart\TimeSeriesChartTest.java, org.jfree.chart, TimeSeriesChartTest, 84, 4, 21.0
+..\..\jfreechart\src\test\java\org\jfree\chart\WaterfallChartTest.java, org.jfree.chart, WaterfallChartTest, 66, 2, 33.0
+..\..\jfreechart\src\test\java\org\jfree\chart\XYAreaChartTest.java, org.jfree.chart, XYAreaChartTest, 83, 4, 20.75
+..\..\jfreechart\src\test\java\org\jfree\chart\XYBarChartTest.java, org.jfree.chart, XYBarChartTest, 87, 4, 21.75
+..\..\jfreechart\src\test\java\org\jfree\chart\XYLineChartTest.java, org.jfree.chart, XYLineChartTest, 84, 4, 21.0
+..\..\jfreechart\src\test\java\org\jfree\chart\XYStepAreaChartTest.java, org.jfree.chart, XYStepAreaChartTest, 83, 4, 20.75
+..\..\jfreechart\src\test\java\org\jfree\chart\XYStepChartTest.java, org.jfree.chart, XYStepChartTest, 93, 4, 23.25
+..\..\jfreechart\src\test\java\org\jfree\data\DatasetChangeConfirmation.java, org.jfree.data, that records the latest event received as a, 10, 0, Infinity
+..\..\jfreechart\src\test\java\org\jfree\data\general\IntervalDataItem.java, org.jfree.data.general, IntervalDataItem, 20, 0, Infinity
+..\..\jfreechart\src\test\java\org\jfree\data\general\TestIntervalCategoryDataset.java, org.jfree.data.general, TestIntervalCategoryDataset<R extends Comparable<R>, 
+        C extends Comparable<C>>  extends AbstractDataset, 193, 0, Infinity
+..\..\jfreechart\src\test\java\org\jfree\data\general\TestIntervalXYZDataset.java, org.jfree.data.general, TestIntervalXYZDataset implements IntervalXYZDataset<Integer>, 87, 0, Infinity

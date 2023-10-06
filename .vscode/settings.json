@@ -1,0 +1,3 @@
+{
+    "java.project.exportJar.targetPath": "${workspaceFolder}/bin/${fileBasenameNoExtension}.jar",
+}

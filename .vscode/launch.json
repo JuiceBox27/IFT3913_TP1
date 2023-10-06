@@ -1,0 +1,34 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "tls",
+            "request": "launch",
+            "mainClass": "tls",
+            "projectName": "TP1_f3bfa4a3",
+            "args": "-o test1.csv ../jfreechart/src/test"
+        },
+        {
+            "type": "java",
+            "name": "tropcomp",
+            "request": "launch",
+            "mainClass": "tropcomp",
+            "projectName": "TP1_f3bfa4a3",
+            "args": "-o test2.csv ../jfreechart/src/test 5"
+        },
+        {
+            "type": "java",
+            "name": "Launch with Arguments Prompt",
+            "request": "launch",
+            "mainClass": "tropcomp",
+            "args": "-o test2.csv ../jfreechart/src/test 3"
+        },
+        {
+            "type": "java",
+            "name": "launc tls with args",
+            "request": "launch",
+            "mainClass": "tls",
+            "args": "-o test2.csv ../jfreechart/src/test"
+        }
+    ]
+}
