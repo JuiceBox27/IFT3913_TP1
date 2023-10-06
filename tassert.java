@@ -1,25 +1,18 @@
 import java.io.File;
 import java.io.IOException;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 public class tassert {
     File file;
 
     public static void main(String[] args) {
-        tassert myTassert = new tassert(new File("SimpleExampleTests.java"));
+        LinkedList<String> assertions = tassert.getAssertionsInFile(args[0]);
 
-        LinkedList<String> assertions = myTassert.getAssertionsInFile("SimpleExampleTests.java");
+        // debug(assertions);
 
-        System.out.println("--------Assertions--------");
-        for (String assertion : assertions) {
-            System.out.println(assertion);
-        }
         System.out.println("Number of assertions: " + assertions.size());
-    }
-
-    public tassert(File file) {
-        this.file = file;
     }
 
     /**
@@ -54,12 +47,11 @@ public class tassert {
      * @return The method is returning a LinkedList of Strings.
      */
     public static LinkedList<String> getAssertionsInFile(String filePath) {
-        Scanner reader = null;
         LinkedList<String> assertions = new LinkedList<String>();
 
         try {
+            Scanner reader = new Scanner(new File(filePath));
             String assertion;
-            reader = new Scanner(new File(filePath));
 
             while (reader.hasNext()) {
                 assertion = reader.next();
@@ -76,5 +68,17 @@ public class tassert {
         }
 
         return assertions;
+    }
+
+    /**
+     * The debug function prints out a list of assertions.
+     * 
+     * @param assertions A list of strings representing the assertions that need to be debugged.
+     */
+    private static void debug(List<String> assertions) {
+        System.out.println("--------Assertions--------");
+        for (String assertion : assertions) {
+            System.out.println(assertion);
+        }
     }
 }

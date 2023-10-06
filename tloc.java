@@ -7,18 +7,20 @@ import java.util.List;
 
 public class tloc {
     public static void main(String[] args) {
-        // tloc myTloc = new tloc(new File("SimpleExampleFile.java"));
-        
-        List<String> lines = getLOCsInFilePath("testFiles/subFolder1/SimpleExampleFile.java");
+        List<String> lines = getLOCsInFilePath(args[0]);
 
+        // debug(lines);
 
-        System.out.println("--------Lines of Code--------");
-        for (String line : lines) {
-            System.out.println(line);
-        }
         System.out.println("Lines of code (LOCs): " + lines.size());
     }
 
+
+    /**
+     * The function returns the number of lines of code in a given file.
+     * 
+     * @param file The parameter "file" is of type File and represents a file object.
+     * @return The number of lines of code (LOCs) in the file.
+     */
     public static int getLOCsInFile(File file) {
         return getLOCsInFilePath(file.getPath()).size();
     }
@@ -50,5 +52,18 @@ public class tloc {
         }
 
         return lines;
+    }
+
+    /**
+     * The debug function prints out each line of code in a given list.
+     * 
+     * @param lines The parameter "lines" is a List of Strings. It represents a collection of lines of
+     * code that will be printed out for debugging purposes.
+     */
+    private static void debug(List<String> lines) {
+        System.out.println("--------Lines of Code--------");
+        for (String line : lines) {
+            System.out.println(line);
+        }
     }
 }

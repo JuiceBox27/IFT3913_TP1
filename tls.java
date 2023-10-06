@@ -10,24 +10,35 @@ import java.util.stream.Stream;
 
 public class tls {
     public static void main(String[] args) {
-        // File file = new File("../jfreechart/src/test/java/org/jfree/chart/title");
-        File file = new File("../jfreechart/src/test");
+        execute(args);
+        // System.out.println("Number of test files: " + tlsFiles.size());
+    }
+
+    public static void execute(String[] userInputs) {
+        // Verify that the user has inputted the appropriate amount of arguments.
+        if (userInputs.length != 1 && userInputs.length != 3)
+            return;
+
         List<TestFile> tlsFiles = new ArrayList<TestFile>();
-        
+        String inputPath = userInputs.length == 1 ? userInputs[0] : userInputs[2];
+        File file = new File(inputPath);
+            
         tlsFiles = tlsFilesInDirectory(file, tlsFiles);
 
+        writeToCmd(tlsFiles); //Output to command line.
+
+        if (userInputs.length == 3) {
+            createCSV(tlsFiles, userInputs[1]);
+        }
+    }
+
+    public static void writeToCmd(List<TestFile> tlsFiles) {
         System.out.println("path, package, class, tLOCs, assertions, tcmp");
         for (TestFile testFile : tlsFiles) {
             System.out.println(testFile.toString());
         }
-
-        createCSV(tlsFiles);
-
-        System.out.println("Number of test files: " + tlsFiles.size());
-
-        // System.out.println(tloc.getLOCsInFile(file.getPath()));
     }
-    
+
     /**
      * The function `tlsFilesInDirectory` recursively searches for Java files in a directory and adds
      * them to a list of `TestFile` objects.
@@ -48,7 +59,8 @@ public class tls {
 
         if (file.isDirectory()) {
             for (File subFile : file.listFiles(filter)) {
-                System.out.println(subFile);
+                // System.out.println(subFile);
+
                 if (subFile.isDirectory()) {
                     Stream.concat(testFiles.stream(), tlsFilesInDirectory(subFile, testFiles).stream()).toList();
                 } else {
@@ -146,8 +158,8 @@ public class tls {
      * @param testFiles A list of TestFile objects.
      * @return The method is returning a File object.
      */
-    public static File createCSV(List<TestFile> testFiles) {
-        File outputFile = new File("test.csv");
+    public static File createCSV(List<TestFile> testFiles, String csvPath) {
+        File outputFile = new File(csvPath);
 
         try {
             FileWriter fileWriter;
@@ -178,7 +190,7 @@ class TestFile {
     int totalLOCs;
     int totalAssertions;
 
-    private double tcmp;
+    double tcmp;
 
     public TestFile(String filePath, String packageName, String className, int totalLOCs, int totalAssertions) {
         this.filePath = filePath;
