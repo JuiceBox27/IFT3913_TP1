@@ -2,6 +2,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "tropcomp",
+            "request": "launch",
+            "mainClass": "tp1.tropcomp",
+            "projectName": "TP1_f3bfa4a3"
+        },
+        {
+            "type": "java",
+            "name": "tls",
+            "request": "launch",
+            "mainClass": "tp1.tls",
+            "projectName": "TP1_f3bfa4a3"
+        },
+        {
+            "type": "java",
+            "name": "tloc",
+            "request": "launch",
+            "mainClass": "tloc",
+            "projectName": "TP1_f3bfa4a3"
+        },
+        {
+            "type": "java",
             "name": "tls",
             "request": "launch",
             "mainClass": "tls",
