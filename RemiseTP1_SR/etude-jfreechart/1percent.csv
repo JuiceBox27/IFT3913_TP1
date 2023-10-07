@@ -1,0 +1,172 @@
+path, package, class, tLOCs, assertions, tcmp
+..\jfreechart\src\test\java\org\jfree\chart\annotations\XYBoxAnnotationTest.java, org.jfree.chart.annotations, XYBoxAnnotationTest, 141, 21, 6.714285714285714
+..\jfreechart\src\test\java\org\jfree\chart\annotations\XYDrawableAnnotationTest.java, org.jfree.chart.annotations, XYDrawableAnnotationTest, 103, 18, 5.722222222222222
+..\jfreechart\src\test\java\org\jfree\chart\annotations\XYLineAnnotationTest.java, org.jfree.chart.annotations, XYLineAnnotationTest, 128, 33, 3.878787878787879
+..\jfreechart\src\test\java\org\jfree\chart\annotations\XYPolygonAnnotationTest.java, org.jfree.chart.annotations, XYPolygonAnnotationTest, 91, 17, 5.352941176470588
+..\jfreechart\src\test\java\org\jfree\chart\annotations\XYShapeAnnotationTest.java, org.jfree.chart.annotations, XYShapeAnnotationTest, 100, 17, 5.882352941176471
+..\jfreechart\src\test\java\org\jfree\chart\annotations\XYTitleAnnotationTest.java, org.jfree.chart.annotations, XYTitleAnnotationTest, 88, 13, 6.769230769230769
+..\jfreechart\src\test\java\org\jfree\chart\AreaChartTest.java, org.jfree.chart, AreaChartTest, 96, 8, 12.0
+..\jfreechart\src\test\java\org\jfree\chart\axis\AxisTest.java, org.jfree.chart.axis, AxisTest, 165, 61, 2.7049180327868854
+..\jfreechart\src\test\java\org\jfree\chart\axis\CategoryLabelPositionsTest.java, org.jfree.chart.axis, CategoryLabelPositionsTest, 114, 12, 9.5
+..\jfreechart\src\test\java\org\jfree\chart\axis\DateAxisTest.java, org.jfree.chart.axis, DateAxisTest, 840, 203, 4.137931034482759
+..\jfreechart\src\test\java\org\jfree\chart\axis\LogarithmicAxisTest.java, org.jfree.chart.axis, LogarithmicAxisTest, 124, 15, 8.266666666666667
+..\jfreechart\src\test\java\org\jfree\chart\axis\LogAxisTest.java, org.jfree.chart.axis, LogAxisTest, 174, 35, 4.9714285714285715
+..\jfreechart\src\test\java\org\jfree\chart\axis\NumberAxisTest.java, org.jfree.chart.axis, NumberAxisTest, 220, 61, 3.6065573770491803
+..\jfreechart\src\test\java\org\jfree\chart\axis\PeriodAxisLabelInfoTest.java, org.jfree.chart.axis, PeriodAxisLabelInfoTest, 116, 26, 4.461538461538462
+..\jfreechart\src\test\java\org\jfree\chart\axis\PeriodAxisTest.java, org.jfree.chart.axis, PeriodAxisTest implements AxisChangeListener, 180, 47, 3.8297872340425534
+..\jfreechart\src\test\java\org\jfree\chart\axis\SubCategoryAxisTest.java, org.jfree.chart.axis, SubCategoryAxisTest, 78, 14, 5.571428571428571
+..\jfreechart\src\test\java\org\jfree\chart\axis\TickUnitsTest.java, org.jfree.chart.axis, TickUnitsTest, 33, 6, 5.5
+..\jfreechart\src\test\java\org\jfree\chart\axis\ValueAxisTest.java, org.jfree.chart.axis, ValueAxisTest, 139, 39, 3.5641025641025643
+..\jfreechart\src\test\java\org\jfree\chart\BarChartTest.java, org.jfree.chart, BarChartTest, 93, 5, 18.6
+..\jfreechart\src\test\java\org\jfree\chart\block\BlockBorderTest.java, org.jfree.chart.block, BlockBorderTest, 44, 8, 5.5
+..\jfreechart\src\test\java\org\jfree\chart\block\BorderArrangementTest.java, org.jfree.chart.block, BorderArrangementTest, 522, 154, 3.3896103896103895
+..\jfreechart\src\test\java\org\jfree\chart\block\GridArrangementTest.java, org.jfree.chart.block, GridArrangementTest, 176, 38, 4.631578947368421
+..\jfreechart\src\test\java\org\jfree\chart\entity\CategoryItemEntityTest.java, org.jfree.chart.entity, CategoryItemEntityTest, 64, 11, 5.818181818181818
+..\jfreechart\src\test\java\org\jfree\chart\entity\StandardEntityCollectionTest.java, org.jfree.chart.entity, StandardEntityCollectionTest, 52, 9, 5.777777777777778
+..\jfreechart\src\test\java\org\jfree\chart\GanttChartTest.java, org.jfree.chart, GanttChartTest, 175, 3, 58.333333333333336
+..\jfreechart\src\test\java\org\jfree\chart\imagemap\DynamicDriveToolTipTagFragmentGeneratorTest.java, org.jfree.chart.imagemap, DynamicDriveToolTipTagFragmentGeneratorTest, 16, 3, 5.333333333333333
+..\jfreechart\src\test\java\org\jfree\chart\imagemap\OverLIBToolTipTagFragmentGeneratorTest.java, org.jfree.chart.imagemap, OverLIBToolTipTagFragmentGeneratorTest, 16, 3, 5.333333333333333
+..\jfreechart\src\test\java\org\jfree\chart\internal\ArgsTest.java, org.jfree.chart.internal, ArgsTest, 16, 3, 5.333333333333333
+..\jfreechart\src\test\java\org\jfree\chart\internal\CloneUtilsTest.java, org.jfree.chart.internal, CloneUtilsTest, 30, 5, 6.0
+..\jfreechart\src\test\java\org\jfree\chart\internal\HashUtilsTest.java, org.jfree.chart.internal, HashUtilsTest, 16, 2, 8.0
+..\jfreechart\src\test\java\org\jfree\chart\internal\SerialUtilsTest.java, org.jfree.chart.internal, SerialUtilsTest, 72, 5, 14.4
+..\jfreechart\src\test\java\org\jfree\chart\JFreeChartTest.java, org.jfree.chart, JFreeChartTest implements ChartChangeListener, 295, 50, 5.9
+..\jfreechart\src\test\java\org\jfree\chart\labels\CustomXYItemLabelGeneratorTest.java, org.jfree.chart.labels, CustomXYItemLabelGeneratorTest, 39, 5, 7.8
+..\jfreechart\src\test\java\org\jfree\chart\labels\IntervalCategoryToolTipGeneratorTest.java, org.jfree.chart.labels, IntervalCategoryToolTipGeneratorTest, 75, 14, 5.357142857142857
+..\jfreechart\src\test\java\org\jfree\chart\labels\ItemLabelAnchorTest.java, org.jfree.chart.labels, ItemLabelAnchorTest, 17, 3, 5.666666666666667
+..\jfreechart\src\test\java\org\jfree\chart\labels\ItemLabelPositionTest.java, org.jfree.chart.labels, ItemLabelPositionTest, 18, 3, 6.0
+..\jfreechart\src\test\java\org\jfree\chart\labels\StandardCategorySeriesLabelGeneratorTest.java, org.jfree.chart.labels, StandardCategorySeriesLabelGeneratorTest, 65, 12, 5.416666666666667
+..\jfreechart\src\test\java\org\jfree\chart\legend\LegendGraphicTest.java, org.jfree.chart.legend, LegendGraphicTest, 127, 41, 3.097560975609756
+..\jfreechart\src\test\java\org\jfree\chart\LegendItemCollectionTest.java, org.jfree.chart, LegendItemCollectionTest, 56, 9, 6.222222222222222
+..\jfreechart\src\test\java\org\jfree\chart\LegendItemTest.java, org.jfree.chart, LegendItemTest, 257, 46, 5.586956521739131
+..\jfreechart\src\test\java\org\jfree\chart\LineChartTest.java, org.jfree.chart, LineChartTest, 89, 8, 11.125
+..\jfreechart\src\test\java\org\jfree\chart\MeterChartTest.java, org.jfree.chart, MeterChartTest, 22, 0, Infinity
+..\jfreechart\src\test\java\org\jfree\chart\PieChartTest.java, org.jfree.chart, PieChartTest, 38, 2, 19.0
+..\jfreechart\src\test\java\org\jfree\chart\plot\CategoryPlotTest.java, org.jfree.chart.plot, CategoryPlotTest, 905, 220, 4.113636363636363
+..\jfreechart\src\test\java\org\jfree\chart\plot\CombinedDomainCategoryPlotTest.java, org.jfree.chart.plot, CombinedDomainCategoryPlotTest implements ChartChangeListener, 161, 9, 17.88888888888889
+..\jfreechart\src\test\java\org\jfree\chart\plot\CombinedDomainXYPlotTest.java, org.jfree.chart.plot, CombinedDomainXYPlotTest implements ChartChangeListener, 163, 10, 16.3
+..\jfreechart\src\test\java\org\jfree\chart\plot\CombinedRangeCategoryPlotTest.java, org.jfree.chart.plot, CombinedRangeCategoryPlotTest implements ChartChangeListener, 161, 8, 20.125
+..\jfreechart\src\test\java\org\jfree\chart\plot\CombinedRangeXYPlotTest.java, org.jfree.chart.plot, CombinedRangeXYPlotTest implements ChartChangeListener, 157, 9, 17.444444444444443
+..\jfreechart\src\test\java\org\jfree\chart\plot\dial\DialPlotTest.java, org.jfree.chart.plot.dial, DialPlotTest implements PlotChangeListener, 172, 37, 4.648648648648648
+..\jfreechart\src\test\java\org\jfree\chart\plot\dial\MyDialLayerChangeListener.java, org.jfree.chart.plot.dial, MyDialLayerChangeListener implements DialLayerChangeListener, 8, 0, Infinity
+..\jfreechart\src\test\java\org\jfree\chart\plot\dial\StandardDialScaleTest.java, org.jfree.chart.plot.dial, StandardDialScaleTest, 155, 61, 2.540983606557377
+..\jfreechart\src\test\java\org\jfree\chart\plot\FastScatterPlotTest.java, org.jfree.chart.plot, FastScatterPlotTest, 140, 38, 3.6842105263157894
+..\jfreechart\src\test\java\org\jfree\chart\plot\flow\FlowPlotTest.java, org.jfree.chart.plot.flow, FlowPlotTest implements PlotChangeListener, 180, 42, 4.285714285714286
+..\jfreechart\src\test\java\org\jfree\chart\plot\MarkerTest.java, org.jfree.chart.plot, MarkerTest implements MarkerChangeListener, 244, 55, 4.4363636363636365
+..\jfreechart\src\test\java\org\jfree\chart\plot\MeterIntervalTest.java, org.jfree.chart.plot, MeterIntervalTest, 43, 6, 7.166666666666667
+..\jfreechart\src\test\java\org\jfree\chart\plot\MeterPlotTest.java, org.jfree.chart.plot, MeterPlotTest, 144, 49, 2.938775510204082
+..\jfreechart\src\test\java\org\jfree\chart\plot\MyPlotChangeListener.java, org.jfree.chart.plot, for testing plot events.
+ */, 19, 0, Infinity
+..\jfreechart\src\test\java\org\jfree\chart\plot\pie\PiePlotTest.java, org.jfree.chart.plot.pie, PiePlotTest, 467, 142, 3.288732394366197
+..\jfreechart\src\test\java\org\jfree\chart\plot\PolarPlotTest.java, org.jfree.chart.plot, PolarPlotTest, 260, 89, 2.9213483146067416
+..\jfreechart\src\test\java\org\jfree\chart\plot\SpiderWebPlotTest.java, org.jfree.chart.plot, SpiderWebPlotTest, 213, 69, 3.0869565217391304
+..\jfreechart\src\test\java\org\jfree\chart\plot\ValueMarkerTest.java, org.jfree.chart.plot, ValueMarkerTest implements MarkerChangeListener, 140, 42, 3.3333333333333335
+..\jfreechart\src\test\java\org\jfree\chart\plot\XYPlotTest.java, org.jfree.chart.plot, XYPlotTest, 994, 241, 4.124481327800829
+..\jfreechart\src\test\java\org\jfree\chart\renderer\AbstractRendererTest.java, org.jfree.chart.renderer, AbstractRendererTest, 552, 185, 2.983783783783784
+..\jfreechart\src\test\java\org\jfree\chart\renderer\category\AbstractCategoryItemRendererTest.java, org.jfree.chart.renderer.category, AbstractCategoryItemRendererTest, 209, 65, 3.2153846153846155
+..\jfreechart\src\test\java\org\jfree\chart\renderer\category\AreaRendererTest.java, org.jfree.chart.renderer.category, AreaRendererTest, 81, 13, 6.230769230769231
+..\jfreechart\src\test\java\org\jfree\chart\renderer\category\BarRendererTest.java, org.jfree.chart.renderer.category, BarRendererTest, 185, 50, 3.7
+..\jfreechart\src\test\java\org\jfree\chart\renderer\category\BoxAndWhiskerRendererTest.java, org.jfree.chart.renderer.category, BoxAndWhiskerRendererTest, 398, 38, 10.473684210526315
+..\jfreechart\src\test\java\org\jfree\chart\renderer\category\CategoryStepRendererTest.java, org.jfree.chart.renderer.category, CategoryStepRendererTest, 63, 11, 5.7272727272727275
+..\jfreechart\src\test\java\org\jfree\chart\renderer\category\DefaultCategoryItemRendererTest.java, org.jfree.chart.renderer.category, DefaultCategoryItemRendererTest, 44, 8, 5.5
+..\jfreechart\src\test\java\org\jfree\chart\renderer\category\GroupedStackedBarRendererTest.java, org.jfree.chart.renderer.category, GroupedStackedBarRendererTest, 97, 16, 6.0625
+..\jfreechart\src\test\java\org\jfree\chart\renderer\category\IntervalBarRendererTest.java, org.jfree.chart.renderer.category, IntervalBarRendererTest, 90, 14, 6.428571428571429
+..\jfreechart\src\test\java\org\jfree\chart\renderer\category\LayeredBarRendererTest.java, org.jfree.chart.renderer.category, LayeredBarRendererTest, 76, 12, 6.333333333333333
+..\jfreechart\src\test\java\org\jfree\chart\renderer\category\LevelRendererTest.java, org.jfree.chart.renderer.category, LevelRendererTest, 108, 17, 6.352941176470588
+..\jfreechart\src\test\java\org\jfree\chart\renderer\category\LineAndShapeRendererTest.java, org.jfree.chart.renderer.category, LineAndShapeRendererTest, 177, 37, 4.783783783783784
+..\jfreechart\src\test\java\org\jfree\chart\renderer\category\MinMaxCategoryRendererTest.java, org.jfree.chart.renderer.category, MinMaxCategoryRendererTest, 83, 14, 5.928571428571429
+..\jfreechart\src\test\java\org\jfree\chart\renderer\category\ScatterRendererTest.java, org.jfree.chart.renderer.category, ScatterRendererTest, 115, 28, 4.107142857142857
+..\jfreechart\src\test\java\org\jfree\chart\renderer\category\StatisticalBarRendererTest.java, org.jfree.chart.renderer.category, StatisticalBarRendererTest, 174, 20, 8.7
+..\jfreechart\src\test\java\org\jfree\chart\renderer\RendererChangeDetector.java, org.jfree.chart.renderer, for detecting whether or not a renderer has generated
+ * a, 19, 0, Infinity
+..\jfreechart\src\test\java\org\jfree\chart\renderer\RendererUtilsTest.java, org.jfree.chart.renderer, RendererUtilsTest, 233, 121, 1.9256198347107438
+..\jfreechart\src\test\java\org\jfree\chart\renderer\xy\CandlestickRendererTest.java, org.jfree.chart.renderer.xy, CandlestickRendererTest, 125, 38, 3.289473684210526
+..\jfreechart\src\test\java\org\jfree\chart\renderer\xy\RendererXYPackageUtils.java, org.jfree.chart.renderer.xy, RendererXYPackageUtils, 31, 0, Infinity
+..\jfreechart\src\test\java\org\jfree\chart\renderer\xy\StackedXYAreaRenderer2Test.java, org.jfree.chart.renderer.xy, StackedXYAreaRenderer2Test, 96, 16, 6.0
+..\jfreechart\src\test\java\org\jfree\chart\renderer\xy\StackedXYAreaRendererTest.java, org.jfree.chart.renderer.xy, StackedXYAreaRendererTest, 138, 15, 9.2
+..\jfreechart\src\test\java\org\jfree\chart\renderer\xy\StackedXYBarRendererTest.java, org.jfree.chart.renderer.xy, StackedXYBarRendererTest, 93, 18, 5.166666666666667
+..\jfreechart\src\test\java\org\jfree\chart\renderer\xy\StandardXYItemRendererTest.java, org.jfree.chart.renderer.xy, StandardXYItemRendererTest, 160, 36, 4.444444444444445
+..\jfreechart\src\test\java\org\jfree\chart\renderer\xy\XYAreaRenderer2Test.java, org.jfree.chart.renderer.xy, XYAreaRenderer2Test, 117, 16, 7.3125
+..\jfreechart\src\test\java\org\jfree\chart\renderer\xy\XYAreaRendererTest.java, org.jfree.chart.renderer.xy, XYAreaRendererTest, 154, 32, 4.8125
+..\jfreechart\src\test\java\org\jfree\chart\renderer\xy\XYBarRendererTest.java, org.jfree.chart.renderer.xy, XYBarRendererTest, 231, 55, 4.2
+..\jfreechart\src\test\java\org\jfree\chart\renderer\xy\XYBlockRendererTest.java, org.jfree.chart.renderer.xy, XYBlockRendererTest, 114, 27, 4.222222222222222
+..\jfreechart\src\test\java\org\jfree\chart\renderer\xy\XYBubbleRendererTest.java, org.jfree.chart.renderer.xy, XYBubbleRendererTest, 90, 13, 6.923076923076923
+..\jfreechart\src\test\java\org\jfree\chart\renderer\xy\XYDifferenceRendererTest.java, org.jfree.chart.renderer.xy, XYDifferenceRendererTest, 115, 23, 5.0
+..\jfreechart\src\test\java\org\jfree\chart\renderer\xy\XYLineAndShapeRendererTest.java, org.jfree.chart.renderer.xy, XYLineAndShapeRendererTest, 196, 54, 3.6296296296296298
+..\jfreechart\src\test\java\org\jfree\chart\renderer\xy\XYStepRendererTest.java, org.jfree.chart.renderer.xy, XYStepRendererTest, 112, 12, 9.333333333333334
+..\jfreechart\src\test\java\org\jfree\chart\renderer\xy\YIntervalRendererTest.java, org.jfree.chart.renderer.xy, YIntervalRendererTest, 153, 43, 3.558139534883721
+..\jfreechart\src\test\java\org\jfree\chart\ScatterPlotTest.java, org.jfree.chart, ScatterPlotTest, 84, 4, 21.0
+..\jfreechart\src\test\java\org\jfree\chart\StackedAreaChartTest.java, org.jfree.chart, StackedAreaChartTest, 90, 5, 18.0
+..\jfreechart\src\test\java\org\jfree\chart\StackedBarChartTest.java, org.jfree.chart, StackedBarChartTest, 92, 5, 18.4
+..\jfreechart\src\test\java\org\jfree\chart\StandardChartThemeTest.java, org.jfree.chart, StandardChartThemeTest, 160, 61, 2.622950819672131
+..\jfreechart\src\test\java\org\jfree\chart\swing\ChartPanelTest.java, org.jfree.chart.swing, ChartPanelTest implements ChartChangeListener, ChartMouseListener, 216, 23, 9.391304347826088
+..\jfreechart\src\test\java\org\jfree\chart\swing\CrosshairOverlayTest.java, org.jfree.chart.swing, CrosshairOverlayTest, 40, 6, 6.666666666666667
+..\jfreechart\src\test\java\org\jfree\chart\text\format\RelativeDateFormatTest.java, org.jfree.chart.text.format, RelativeDateFormatTest, 127, 30, 4.233333333333333
+..\jfreechart\src\test\java\org\jfree\chart\TimeSeriesChartTest.java, org.jfree.chart, TimeSeriesChartTest, 84, 4, 21.0
+..\jfreechart\src\test\java\org\jfree\chart\urls\CustomPieURLGeneratorTest.java, org.jfree.chart.urls, CustomPieURLGeneratorTest, 51, 9, 5.666666666666667
+..\jfreechart\src\test\java\org\jfree\chart\WaterfallChartTest.java, org.jfree.chart, WaterfallChartTest, 66, 2, 33.0
+..\jfreechart\src\test\java\org\jfree\chart\XYAreaChartTest.java, org.jfree.chart, XYAreaChartTest, 83, 4, 20.75
+..\jfreechart\src\test\java\org\jfree\chart\XYBarChartTest.java, org.jfree.chart, XYBarChartTest, 87, 4, 21.75
+..\jfreechart\src\test\java\org\jfree\chart\XYLineChartTest.java, org.jfree.chart, XYLineChartTest, 84, 4, 21.0
+..\jfreechart\src\test\java\org\jfree\chart\XYStepAreaChartTest.java, org.jfree.chart, XYStepAreaChartTest, 83, 4, 20.75
+..\jfreechart\src\test\java\org\jfree\chart\XYStepChartTest.java, org.jfree.chart, XYStepChartTest, 93, 4, 23.25
+..\jfreechart\src\test\java\org\jfree\data\category\CategoryToPieDatasetTest.java, org.jfree.data.category, CategoryToPieDatasetTest, 124, 20, 6.2
+..\jfreechart\src\test\java\org\jfree\data\category\DefaultCategoryDatasetTest.java, org.jfree.data.category, DefaultCategoryDatasetTest, 247, 51, 4.8431372549019605
+..\jfreechart\src\test\java\org\jfree\data\category\DefaultIntervalCategoryDatasetTest.java, org.jfree.data.category, DefaultIntervalCategoryDatasetTest, 304, 46, 6.608695652173913
+..\jfreechart\src\test\java\org\jfree\data\category\SlidingCategoryDatasetTest.java, org.jfree.data.category, SlidingCategoryDatasetTest, 172, 42, 4.095238095238095
+..\jfreechart\src\test\java\org\jfree\data\DatasetChangeConfirmation.java, org.jfree.data, that records the latest event received as a, 10, 0, Infinity
+..\jfreechart\src\test\java\org\jfree\data\DataUtilsTest.java, org.jfree.data, DataUtilsTest, 154, 54, 2.8518518518518516
+..\jfreechart\src\test\java\org\jfree\data\DefaultKeyedValues2DTest.java, org.jfree.data, DefaultKeyedValues2DTest, 210, 48, 4.375
+..\jfreechart\src\test\java\org\jfree\data\DefaultKeyedValuesTest.java, org.jfree.data, DefaultKeyedValuesTest, 313, 107, 2.925233644859813
+..\jfreechart\src\test\java\org\jfree\data\function\PolynomialFunction2DTest.java, org.jfree.data.function, PolynomialFunction2DTest, 63, 10, 6.3
+..\jfreechart\src\test\java\org\jfree\data\gantt\SlidingGanttCategoryDatasetTest.java, org.jfree.data.gantt, SlidingGanttCategoryDatasetTest, 108, 17, 6.352941176470588
+..\jfreechart\src\test\java\org\jfree\data\gantt\TaskSeriesCollectionTest.java, org.jfree.data.gantt, TaskSeriesCollectionTest, 433, 132, 3.2803030303030303
+..\jfreechart\src\test\java\org\jfree\data\general\DatasetUtilsTest.java, org.jfree.data.general, DatasetUtilsTest, 1045, 269, 3.8847583643122676
+..\jfreechart\src\test\java\org\jfree\data\general\DefaultKeyedValues2DDatasetTest.java, org.jfree.data.general, DefaultKeyedValues2DDatasetTest, 28, 4, 7.0
+..\jfreechart\src\test\java\org\jfree\data\general\DefaultKeyedValuesDatasetTest.java, org.jfree.data.general, DefaultKeyedValuesDatasetTest, 28, 4, 7.0
+..\jfreechart\src\test\java\org\jfree\data\general\IntervalDataItem.java, org.jfree.data.general, IntervalDataItem, 20, 0, Infinity
+..\jfreechart\src\test\java\org\jfree\data\general\TestIntervalCategoryDataset.java, org.jfree.data.general, TestIntervalCategoryDataset<R extends Comparable<R>, 
+        C extends Comparable<C>>  extends AbstractDataset, 193, 0, Infinity
+..\jfreechart\src\test\java\org\jfree\data\general\TestIntervalXYZDataset.java, org.jfree.data.general, TestIntervalXYZDataset implements IntervalXYZDataset<Integer>, 87, 0, Infinity
+..\jfreechart\src\test\java\org\jfree\data\KeyedObjects2DTest.java, org.jfree.data, KeyedObjects2DTest, 263, 51, 5.1568627450980395
+..\jfreechart\src\test\java\org\jfree\data\KeyedObjectsTest.java, org.jfree.data, KeyedObjectsTest, 223, 55, 4.054545454545455
+..\jfreechart\src\test\java\org\jfree\data\KeyToGroupMapTest.java, org.jfree.data, KeyToGroupMapTest, 124, 37, 3.3513513513513513
+..\jfreechart\src\test\java\org\jfree\data\RangeTest.java, org.jfree.data, RangeTest, 213, 82, 2.597560975609756
+..\jfreechart\src\test\java\org\jfree\data\statistics\DefaultBoxAndWhiskerCategoryDatasetTest.java, org.jfree.data.statistics, DefaultBoxAndWhiskerCategoryDatasetTest, 172, 46, 3.739130434782609
+..\jfreechart\src\test\java\org\jfree\data\statistics\DefaultMultiValueCategoryDatasetTest.java, org.jfree.data.statistics, DefaultMultiValueCategoryDatasetTest, 153, 32, 4.78125
+..\jfreechart\src\test\java\org\jfree\data\statistics\DefaultStatisticalCategoryDatasetTest.java, org.jfree.data.statistics, DefaultStatisticalCategoryDatasetTest, 159, 46, 3.4565217391304346
+..\jfreechart\src\test\java\org\jfree\data\statistics\HistogramBinTest.java, org.jfree.data.statistics, HistogramBinTest, 33, 5, 6.6
+..\jfreechart\src\test\java\org\jfree\data\statistics\HistogramDatasetTest.java, org.jfree.data.statistics, HistogramDatasetTest implements DatasetChangeListener, 141, 51, 2.764705882352941
+..\jfreechart\src\test\java\org\jfree\data\statistics\RegressionTest.java, org.jfree.data.statistics, RegressionTest, 134, 17, 7.882352941176471
+..\jfreechart\src\test\java\org\jfree\data\statistics\StatisticsTest.java, org.jfree.data.statistics, StatisticsTest, 296, 49, 6.040816326530612
+..\jfreechart\src\test\java\org\jfree\data\time\DayTest.java, org.jfree.data.time, DayTest, 360, 65, 5.538461538461538
+..\jfreechart\src\test\java\org\jfree\data\time\HourTest.java, org.jfree.data.time, HourTest, 328, 68, 4.823529411764706
+..\jfreechart\src\test\java\org\jfree\data\time\MillisecondTest.java, org.jfree.data.time, MillisecondTest, 335, 83, 4.036144578313253
+..\jfreechart\src\test\java\org\jfree\data\time\MinuteTest.java, org.jfree.data.time, MinuteTest, 318, 68, 4.676470588235294
+..\jfreechart\src\test\java\org\jfree\data\time\MonthTest.java, org.jfree.data.time, MonthTest, 374, 62, 6.032258064516129
+..\jfreechart\src\test\java\org\jfree\data\time\ohlc\OHLCSeriesCollectionTest.java, org.jfree.data.time.ohlc, OHLCSeriesCollectionTest implements DatasetChangeListener, 139, 23, 6.043478260869565
+..\jfreechart\src\test\java\org\jfree\data\time\ohlc\OHLCSeriesTest.java, org.jfree.data.time.ohlc, OHLCSeriesTest implements SeriesChangeListener, 146, 36, 4.055555555555555
+..\jfreechart\src\test\java\org\jfree\data\time\QuarterTest.java, org.jfree.data.time, QuarterTest, 390, 64, 6.09375
+..\jfreechart\src\test\java\org\jfree\data\time\SecondTest.java, org.jfree.data.time, SecondTest, 314, 73, 4.301369863013699
+..\jfreechart\src\test\java\org\jfree\data\time\TimePeriodValuesTest.java, org.jfree.data.time, TimePeriodValuesTest, 172, 39, 4.410256410256411
+..\jfreechart\src\test\java\org\jfree\data\time\TimeSeriesCollectionTest.java, org.jfree.data.time, TimeSeriesCollectionTest, 308, 81, 3.802469135802469
+..\jfreechart\src\test\java\org\jfree\data\time\TimeSeriesDataItemTest.java, org.jfree.data.time, TimeSeriesDataItemTest, 32, 6, 5.333333333333333
+..\jfreechart\src\test\java\org\jfree\data\time\TimeSeriesTest.java, org.jfree.data.time, TimeSeriesTest implements SeriesChangeListener, 792, 214, 3.7009345794392523
+..\jfreechart\src\test\java\org\jfree\data\time\WeekTest.java, org.jfree.data.time, WeekTest, 460, 71, 6.47887323943662
+..\jfreechart\src\test\java\org\jfree\data\time\YearTest.java, org.jfree.data.time, YearTest, 328, 47, 6.9787234042553195
+..\jfreechart\src\test\java\org\jfree\data\xy\DefaultHighLowDatasetTest.java, org.jfree.data.xy, DefaultHighLowDatasetTest, 111, 21, 5.285714285714286
+..\jfreechart\src\test\java\org\jfree\data\xy\DefaultIntervalXYDatasetTest.java, org.jfree.data.xy, DefaultIntervalXYDatasetTest, 220, 71, 3.0985915492957745
+..\jfreechart\src\test\java\org\jfree\data\xy\DefaultXYDatasetTest.java, org.jfree.data.xy, DefaultXYDatasetTest, 125, 28, 4.464285714285714
+..\jfreechart\src\test\java\org\jfree\data\xy\DefaultXYZDatasetTest.java, org.jfree.data.xy, DefaultXYZDatasetTest, 131, 28, 4.678571428571429
+..\jfreechart\src\test\java\org\jfree\data\xy\MatrixSeriesCollectionTest.java, org.jfree.data.xy, MatrixSeriesCollectionTest, 52, 10, 5.2
+..\jfreechart\src\test\java\org\jfree\data\xy\TableXYDatasetTest.java, org.jfree.data.xy, TableXYDatasetTest, 139, 34, 4.088235294117647
+..\jfreechart\src\test\java\org\jfree\data\xy\VectorSeriesTest.java, org.jfree.data.xy, VectorSeriesTest implements SeriesChangeListener, 160, 48, 3.3333333333333335
+..\jfreechart\src\test\java\org\jfree\data\xy\XIntervalSeriesCollectionTest.java, org.jfree.data.xy, XIntervalSeriesCollectionTest, 101, 17, 5.9411764705882355
+..\jfreechart\src\test\java\org\jfree\data\xy\XIntervalSeriesTest.java, org.jfree.data.xy, XIntervalSeriesTest implements SeriesChangeListener, 174, 51, 3.411764705882353
+..\jfreechart\src\test\java\org\jfree\data\xy\XYBarDatasetTest.java, org.jfree.data.xy, XYBarDatasetTest, 65, 9, 7.222222222222222
+..\jfreechart\src\test\java\org\jfree\data\xy\XYIntervalSeriesCollectionTest.java, org.jfree.data.xy, XYIntervalSeriesCollectionTest, 96, 17, 5.647058823529412
+..\jfreechart\src\test\java\org\jfree\data\xy\XYIntervalSeriesTest.java, org.jfree.data.xy, XYIntervalSeriesTest implements SeriesChangeListener, 169, 53, 3.188679245283019
+..\jfreechart\src\test\java\org\jfree\data\xy\XYSeriesCollectionTest.java, org.jfree.data.xy, XYSeriesCollectionTest, 314, 94, 3.3404255319148937
+..\jfreechart\src\test\java\org\jfree\data\xy\XYSeriesTest.java, org.jfree.data.xy, XYSeriesTest, 512, 187, 2.7379679144385025
+..\jfreechart\src\test\java\org\jfree\data\xy\YIntervalSeriesCollectionTest.java, org.jfree.data.xy, YIntervalSeriesCollectionTest, 90, 13, 6.923076923076923
+..\jfreechart\src\test\java\org\jfree\data\xy\YIntervalSeriesTest.java, org.jfree.data.xy, YIntervalSeriesTest implements SeriesChangeListener, 158, 47, 3.3617021276595747
