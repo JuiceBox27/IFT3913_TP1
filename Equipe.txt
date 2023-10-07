@@ -1,9 +1,12 @@
-Bonjour, je suis bel et bien conscient des formats d’équipe étant en paires et je crois avoir réglé ce problème pour le prochain TP qui nécessite le travail à deux. 
-J’aimerais vous écrire que oui j’ai essayé de maintenir une équipe mais la communication fut difficile et j’ai continué mon travail jusqu’à la date limite avec ou sans coéquipier.
-J’aurais dû poster sur Piazza trouvé quelqu’un avec qui travailler mais hélas je ne l’ai pas fait faute d’avoir espoir en mon coéquipier. 
+Bonsoir,
+Je vous contacte au sujet des équipes de deux nécessaires pour le devoir.
+La communication fut difficile et j’ai continué mon travail en présumant que mon coéquipier allait y contribuer.
+De plus, j’ai appris aujourd’hui qu’il a travaillé dans les dernières journées dans son propre Git, 
+ainsi j’ai préféré remettre le TP1 pour éviter les pénalités sur les gros commits de dernière minute et son manque de contributions. 
+J’ai reparlé avec mon coéquipier et sera problème sera réglé pour le prochain TP sans faute.
+Je m’excuse encore pour cet incident involontaire et vous prie sincèrement de pardonner l’inconvenance que cela vous a créé. 
 
-Enfin, je vous demande de pardonner cet incident que je ne désirais pas et je vous prie sincèrement d’excuser l’inconvenance que cela vous a créé. 
-
+Bonne fin de semaine!
 Bien à vous,
 
 Stefan Roman
