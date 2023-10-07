@@ -6,10 +6,25 @@ https://github.com/JuiceBox27/IFT3913_TP1
 
 ## Création des jars
 
+Toutes les commandes sont assumées du root du projet.
+
+### Premièrement compiler le code en classes
+
+javac .\src\tp1\* -d .\bin\tp1\
+
+### Deuxièmement créer les jars
+
 jar cvfe jars/tloc.jar tp1.tloc  -C bin/ tp1/ lib/
 jar cvfe jars/tassert.jar tp1.tassert  -C bin/ tp1/ lib/
 jar cvfe jars/tls.jar tp1.tls  -C bin/ tp1/ lib/
 jar cvfe jars/tropcomp.jar tp1.tropcomp  -C bin/ tp1/ lib/
+
+# Comment l'utiliser
+
+java -jar tloc.jar <chemin-de-l'entrée>
+java -jar tassert.jar <chemin-de-l'entrée>
+java -jar tls.jar -o <chemin-à-la-sortie.csv> <chemin-de-l'entrée>
+java -jar tropcomp.jar -o <chemin-à-la-sortie.csv> <chemin-de-l'entrée> <seuil>
 
 ## etude-jfreechart
 Comment exécuter tropcomp pour avoir les fichiers dans etude-jfreechart aux noms respectifs de: 1percent.csv, 5percent.csv, 10percent.csv.
