@@ -1,10 +1,10 @@
-#TP1
+ # TP1
 
 Noms: Stefan Roman
 
 https://github.com/JuiceBox27/IFT3913_TP1
 
-##Création des jars
+## Création des jars
 
 jar cvfe jars/tloc.jar tp1.tloc  -C bin/ tp1/ lib/
 jar cvfe jars/tassert.jar tp1.tassert  -C bin/ tp1/ lib/
@@ -18,7 +18,7 @@ java -jar ./jars/tropcomp.jar -o etude-jfreechart/1percent.csv ../jfreechart/src
 java -jar ./jars/tropcomp.jar -o etude-jfreechart/5percent.csv ../jfreechart/src/test 5
 java -jar ./jars/tropcomp.jar -o etude-jfreechart/10percent.csv ../jfreechart/src/test 10
 
-##Commentaires auto-générés
+## Commentaires auto-générés
 https://github.com/mintlify/writer
 
 1. Vous devez clairement identifier où et comment l'IA générative a été utilisée. 
