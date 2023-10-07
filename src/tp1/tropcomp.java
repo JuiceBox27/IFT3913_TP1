@@ -20,7 +20,7 @@ public class tropcomp {
 
         tls.createCSV(tlsFiles, args[1]);
 
-        System.out.println("Number of test files: " + tlsFiles.size());
+        // System.out.println("Number of test files: " + tlsFiles.size());
     }
 
     /**
