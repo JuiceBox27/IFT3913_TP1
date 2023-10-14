@@ -1,4 +1,4 @@
-package tp1;
+package TPS;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,11 +6,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
-public class tassert {
+public class TestAssertions {
     File file;
 
     public static void main(String[] args) {
-        LinkedList<String> assertions = tassert.getAssertionsInFile(args[0]);
+        LinkedList<String> assertions = TestAssertions.getAssertionsInFile(args[0]);
 
         // debug(assertions);
 

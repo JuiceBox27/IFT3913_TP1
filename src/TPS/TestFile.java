@@ -1,4 +1,4 @@
-package tp1;
+package TPS;
 
 class TestFile {
     String filePath;
@@ -16,7 +16,7 @@ class TestFile {
         this.totalLOCs = totalLOCs;
         this.totalAssertions = totalAssertions;
 
-        tcmp = tls.calculateTCMP(totalLOCs, totalAssertions);
+        tcmp = TestLinesOfSource.calculateTCMP(totalLOCs, totalAssertions);
     }
 
     @Override

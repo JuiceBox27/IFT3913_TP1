@@ -1,4 +1,4 @@
-package tp1;
+package TPS;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -10,7 +10,7 @@ import java.util.Scanner;
 import java.util.regex.MatchResult;
 import java.util.stream.Stream;
 
-public class tls {
+public class TestLinesOfSource {
     public static void main(String[] args) {
         List<TestFile> tlsFiles = execute(args);
         System.out.println("Number of test files: " + tlsFiles.size());
@@ -88,7 +88,7 @@ public class tls {
      * @return The method is returning a TestFile object.
      */
     public static TestFile tlsFile(File testFile) {
-        return new TestFile(testFile.getPath(), parsePackageName(testFile), parseClassName(testFile), tloc.getLOCsInFile(testFile), tassert.getAssertionsInFile(testFile));
+        return new TestFile(testFile.getPath(), parsePackageName(testFile), parseClassName(testFile), TestLinesOfCode.getLOCsInFile(testFile), TestAssertions.getAssertionsInFile(testFile));
     }
 
     /**

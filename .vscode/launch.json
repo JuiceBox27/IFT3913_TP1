@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TropComp",
+            "request": "launch",
+            "mainClass": "TPS.TropComp",
+            "projectName": "TP1_f3bfa4a3"
+        },
+        {
+            "type": "java",
             "name": "tropcomp",
             "request": "launch",
             "mainClass": "tp1.tropcomp",
