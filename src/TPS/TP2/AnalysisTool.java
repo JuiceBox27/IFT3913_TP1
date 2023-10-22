@@ -11,47 +11,24 @@ import java.util.stream.Collectors;
 
 import com.github.mauricioaniche.ck.CK;
 import com.github.mauricioaniche.ck.CKClassResult;
+import com.github.mauricioaniche.ck.CKMethodResult;
 import com.github.mauricioaniche.ck.CKNotifier;
 import com.github.mauricioaniche.ck.ResultWriter;
 import com.github.mauricioaniche.ck.Runner;
 import com.github.mauricioaniche.ck.util.FileUtils;
 
+import TPS.TestFile;
+import TPS.results.ClassResult;
+
 public class AnalysisTool {
-
-    private static final String[] ASSERTIONS = {"assertTrue", "assertFalse", 
-                                                "assertEquals", "assertNotEquals",
-                                                "assertSame", "assertNotSame",
-                                                "assertNull", "assertNotNull",
-                                                "assertArrayEquals", "assertThrows",
-                                            };
-
     public static void main(String[] args) throws IOException {
         Map<String, CKClassResult> results = getCKClassResultsMap(args, false);
-
-        Map<String, Set<String>> assertions = new HashMap<String, Set<String>>();
-        results.forEach((k, v) ->
-            v.getMethods().forEach(m ->
-                assertions.put(v.getClassName(),
-                        m.getMethodInvocations().stream()
-                        // .filter(i -> i.contains("assert"))
-                        .filter(i -> isInvocationAssertion(i))
-                        .collect(Collectors.toSet()))
-            )
-        );
-
-        assertions.forEach((k, v) ->
-            System.out.println("-----"
-                + "\nclassName: " + k
-                + "\nAssertions: " + v
-                + "\n#Assertions: " + v.size()
-                + "\n"
-            )
-        );
+        Map<String, ClassResult> myResults = new HashMap<String, ClassResult>();
         
-    }
+        results.forEach((k, v) -> myResults.put(k, new ClassResult(v)));
 
-    private static boolean isInvocationAssertion(String invocation) {
-        return Arrays.stream(ASSERTIONS).anyMatch(invocation::contains);
+        myResults.forEach((k, v) -> System.out.println(v.toString()));
+        
     }
 
     private static Map<String, CKClassResult> getCKClassResultsMap(String[] runnerArgs, boolean runnerPrintResults) {
