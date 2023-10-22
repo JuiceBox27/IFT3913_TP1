@@ -32,6 +32,9 @@ public class AnalysisTool {
 		.forEach((e -> System.out.println(e.getValue().toString())));
 
 		System.out.println("+-+-+-+-+-+-+-+");
+		System.out.println("#totLoc: " + ClassResult.totalLoc(myResults));
+		System.out.println("#totTestMethodsLoc: " + ClassResult.totalTestsLoc(myResults));
+		System.out.println("----------");
 		System.out.println("#totMethods: " + ClassResult.totalMethods(myResults));
 		System.out.println("#totTestMethods: " + ClassResult.totalFunctionalMethods(myResults));
 		System.out.println("#totFunctionalMethods: " + ClassResult.totalTestMethods(myResults));
