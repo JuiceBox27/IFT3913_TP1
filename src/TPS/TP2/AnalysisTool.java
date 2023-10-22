@@ -17,7 +17,6 @@ import com.github.mauricioaniche.ck.ResultWriter;
 import com.github.mauricioaniche.ck.Runner;
 import com.github.mauricioaniche.ck.util.FileUtils;
 
-import TPS.TestFile;
 import TPS.results.ClassResult;
 
 public class AnalysisTool {
