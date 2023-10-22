@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.Map.Entry;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -26,8 +27,14 @@ public class AnalysisTool {
         
         results.forEach((k, v) -> myResults.put(k, new ClassResult(v)));
 
-        myResults.forEach((k, v) -> System.out.println(v.toString()));
-        
+		myResults.entrySet().stream()
+		// .filter(e -> e.getValue().numberOfNonTestMethods() > 0)
+		.forEach((e -> System.out.println(e.getValue().toString())));
+
+		System.out.println("+-+-+-+-+-+-+-+");
+		System.out.println("#totMethods: " + ClassResult.totalMethods(myResults));
+		System.out.println("#totTestMethods: " + ClassResult.totalFunctionalMethods(myResults));
+		System.out.println("#totFunctionalMethods: " + ClassResult.totalTestMethods(myResults));
     }
 
     private static Map<String, CKClassResult> getCKClassResultsMap(String[] runnerArgs, boolean runnerPrintResults) {

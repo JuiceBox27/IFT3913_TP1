@@ -18,46 +18,54 @@ public class ClassResult {
                                                 "assertNull", "assertNotNull",
                                                 "assertArrayEquals", "assertThrows",
                                             };
-
-    String className;
-    int linesOfCode;
+    CKClassResult ckClassResult;
     int testsInClass;
-    int numberOfMethods;
     
     public ClassResult(CKClassResult result) {
-        this.className = result.getClassName();
-        this.linesOfCode = result.getLoc();
-        this.numberOfMethods = result.getMethods().size();
+        this.ckClassResult = result;
 
         Map<String, Set<String>> assertions = new HashMap<String, Set<String>>();
 
 
-        result.getMethods().forEach(m ->
+        result.getMethods().stream()
+        .filter(m -> getAssertionsFromMethodInvocations(m).size() > 0)
+        .forEach(m ->
                 assertions.put(m.getMethodName(), getAssertionsFromMethodInvocations(m))
         );
 
         this.testsInClass = assertions.size();
+
+        // result.getMethods().forEach(m ->
+
+        // );
     }
 
     public String getClassName() {
-        return className;
+        return ckClassResult.getClassName();
     }
 
     public int getLinesOfCode() {
-        return linesOfCode;
+        return ckClassResult.getLoc();
     }
 
-    public int getNumberOfMethods() {
-        return numberOfMethods;
+    public int numberOfMethods() {
+        return ckClassResult.getMethods().size();
     }
 
-    public int getTestsInClass() {
+    public int numberOfTestMethods() {
         return testsInClass;
+    }
+
+    public int numberOfFunctionalMethods() {
+        return numberOfMethods() - numberOfTestMethods();
+    }
+    
+    private boolean isTestMethod(CKMethodResult m) {
+        return m.getMethodInvocations().stream().anyMatch(i -> isInvocationAssertion(i));
     }
 
     private static Set<String> getAssertionsFromMethodInvocations(CKMethodResult m) {
         return m.getMethodInvocations().stream()
-                // .filter(i -> i.contains("assert"))
                 .filter(i -> isInvocationAssertion(i))
                 .collect(Collectors.toSet());
     }
@@ -70,8 +78,25 @@ public class ClassResult {
 
     // }
 
+
+    public static int totalMethods(Map<String, ClassResult> myResults) {
+		return myResults.values().stream().mapToInt(t -> t.numberOfMethods()).sum();
+	}
+
+    public static int totalTestMethods(Map<String, ClassResult> myResults) {
+		return myResults.values().stream().mapToInt(t -> t.numberOfTestMethods()).sum();
+	}
+
+    public static int totalFunctionalMethods(Map<String, ClassResult> myResults) {
+		return myResults.values().stream().mapToInt(t -> t.numberOfFunctionalMethods()).sum();
+	}
+
     @Override
     public String toString() {
-        return getClassName() + ", " + getLinesOfCode() + ", " + getNumberOfMethods() + ", " + getTestsInClass();
+        return  "-----\n" + getClassName() 
+                + "\nloc: " + getLinesOfCode() 
+                + "\n#methods: " + numberOfMethods() 
+                + "\n#testMethods: " + numberOfTestMethods()
+                + "\n#FunctionalMethods: " + numberOfFunctionalMethods();
     }
 }
