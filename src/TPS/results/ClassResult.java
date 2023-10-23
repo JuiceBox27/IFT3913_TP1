@@ -1,5 +1,8 @@
 package TPS.results;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -43,6 +46,25 @@ public class ClassResult {
     public int testMethodsLoc() {
         return getTestMethods(ckClassResult).keySet().stream()
             .mapToInt(k -> k.getLoc()).sum();
+    }
+
+    public int cloc() {
+        try {
+            String content = new String(Files.readAllBytes(Paths.get(ckClassResult.getFile())));
+    
+            return content.lines().filter(l -> !l.isBlank()).toList().size() - ckClassResult.getLoc();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return 0;
+    }
+
+    public double commentsDensity() {
+        double cloc = cloc();
+        double ncloc = ckClassResult.getLoc();
+
+        return cloc / (ncloc + cloc);
     }
 
     // public int functionalMethodsLoc() {
@@ -117,12 +139,15 @@ public class ClassResult {
     @Override
     public String toString() {
         return  "-----\n" + ckClassResult.getClassName() 
-                + "\nloc: " + ckClassResult.getLoc() 
+                + "\nncloc: " + ckClassResult.getLoc() 
+                + "\ncloc: " + cloc()
+                + "\nDC: " + commentsDensity()
+                + "\ntestsLoc: " + testMethodsLoc()
                 + "\n#methods: " + numberOfMethods() 
                 + "\n#testMethods: " + numberOfTestMethods()
                 + "\n#FunctionalMethods: " + numberOfFunctionalMethods()
                 + "\nrfc: " + ckClassResult.getRfc()
-                + "\ntestsLoc: " + testMethodsLoc()
+                + "\nwmc: " + ckClassResult.getWmc()
                 ;
                 // + "\nfunctionalMethodsLoc: " + functionalMethodsLoc();
     }
