@@ -6,7 +6,7 @@
             "request": "launch",
             "mainClass": "TPS.TP2.AnalysisTool",
             "projectName": "IFT3913_TP1_2a6f3a6a",
-            "args": "../../jfreechart/src/ True 0 True ./etude-jfreechart/TP2/TP2"
+            "args": "../../jfreechart/src/test True 0 True ./etude-jfreechart/TP2/TP2"
         },
         {
             "type": "java",

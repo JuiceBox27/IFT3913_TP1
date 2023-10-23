@@ -136,19 +136,33 @@ public class ClassResult {
 
 //#endregion
 
+    public String toCsv() {
+        return ckClassResult.getClassName() 
+            + ", " + ckClassResult.getLoc() 
+            + ", " + cloc()
+            + ", " + commentsDensity()
+            + ", " + testMethodsLoc()
+            + ", " + numberOfMethods()
+            + ", " + numberOfTestMethods()
+            + ", " + numberOfFunctionalMethods()
+            + ", " + ckClassResult.getRfc()
+            + ", " + ckClassResult.getWmc()
+        ;
+    }
+
     @Override
     public String toString() {
         return  "-----\n" + ckClassResult.getClassName() 
-                + "\nncloc: " + ckClassResult.getLoc() 
-                + "\ncloc: " + cloc()
-                + "\nDC: " + commentsDensity()
-                + "\ntestsLoc: " + testMethodsLoc()
-                + "\n#methods: " + numberOfMethods() 
-                + "\n#testMethods: " + numberOfTestMethods()
-                + "\n#FunctionalMethods: " + numberOfFunctionalMethods()
-                + "\nrfc: " + ckClassResult.getRfc()
-                + "\nwmc: " + ckClassResult.getWmc()
-                ;
+            + "\nncloc: " + ckClassResult.getLoc() 
+            + "\ncloc: " + cloc()
+            + "\nDC: " + commentsDensity()
+            + "\ntestsLoc: " + testMethodsLoc()
+            + "\n#methods: " + numberOfMethods() 
+            + "\n#testMethods: " + numberOfTestMethods()
+            + "\n#FunctionalMethods: " + numberOfFunctionalMethods()
+            + "\nrfc: " + ckClassResult.getRfc()
+            + "\nwmc: " + ckClassResult.getWmc()
+        ;
                 // + "\nfunctionalMethodsLoc: " + functionalMethodsLoc();
     }
 } 

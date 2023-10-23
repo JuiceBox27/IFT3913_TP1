@@ -1,26 +1,24 @@
 package TPS.TP2;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.Map.Entry;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 import com.github.mauricioaniche.ck.CK;
 import com.github.mauricioaniche.ck.CKClassResult;
-import com.github.mauricioaniche.ck.CKMethodResult;
 import com.github.mauricioaniche.ck.CKNotifier;
 import com.github.mauricioaniche.ck.ResultWriter;
-import com.github.mauricioaniche.ck.Runner;
 import com.github.mauricioaniche.ck.util.FileUtils;
 
 import TPS.results.ClassResult;
 
 public class AnalysisTool {
+	
+	private static final String CSV_HEADER = "class, ncloc, cloc, dc, testMethodsLoc, numberOfMethods, numberOfTestMethods, numberOfFunctionalMethods, rfc, wmc";
+
     public static void main(String[] args) throws IOException {
         Map<String, CKClassResult> results = getCKClassResultsMap(args, false);
         Map<String, ClassResult> myResults = new HashMap<String, ClassResult>();
@@ -38,6 +36,38 @@ public class AnalysisTool {
 		System.out.println("#totMethods: " + ClassResult.totalMethods(myResults));
 		System.out.println("#totTestMethods: " + ClassResult.totalFunctionalMethods(myResults));
 		System.out.println("#totFunctionalMethods: " + ClassResult.totalTestMethods(myResults));
+
+		createCSV(myResults.values().stream().toList(), "test.csv");
+    }
+
+	/**
+     * The function creates a CSV file and writes the contents of a list of TestFile objects to it.
+     * 
+     * @param testFiles A list of TestFile objects.
+     * @return The method is returning a File object.
+     */
+    public static File createCSV(List<ClassResult> result, String csvPath) {
+        File outputFile = new File(csvPath);
+
+        try {
+            FileWriter fileWriter;
+
+            outputFile.createNewFile();
+            fileWriter = new FileWriter(outputFile);
+
+            fileWriter.append(CSV_HEADER + "\n");
+
+            for (ClassResult testFile : result) {
+                fileWriter.append(testFile.toCsv() + "\n");
+            }
+
+            fileWriter.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return outputFile;
     }
 
     private static Map<String, CKClassResult> getCKClassResultsMap(String[] runnerArgs, boolean runnerPrintResults) {
