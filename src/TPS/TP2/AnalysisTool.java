@@ -20,7 +20,7 @@ public class AnalysisTool {
 	private static final String CSV_HEADER = "class, ncloc, cloc, dc, testMethodsLoc, numberOfMethods, numberOfTestMethods, numberOfFunctionalMethods, rfc, wmc";
 
     public static void main(String[] args) throws IOException {
-        Map<String, CKClassResult> results = getCKClassResultsMap(args, false);
+        Map<String, CKClassResult> results = createCKClassResultsMap(args, false);
         Map<String, ClassResult> myResults = new HashMap<String, ClassResult>();
         
         results.forEach((k, v) -> myResults.put(k, new ClassResult(v)));
@@ -70,7 +70,7 @@ public class AnalysisTool {
         return outputFile;
     }
 
-    private static Map<String, CKClassResult> getCKClassResultsMap(String[] runnerArgs, boolean runnerPrintResults) {
+    private static Map<String, CKClassResult> createCKClassResultsMap(String[] runnerArgs, boolean runnerPrintResults) {
         if (runnerArgs == null || runnerArgs.length < 1) {
 			System.out.println("Usage java -jar ck.jar <path to project> <use Jars=true|false> <max files per partition, 0=automatic selection> <print variables and fields metrics? True|False> <path to save the output files>");
 			System.exit(1);
