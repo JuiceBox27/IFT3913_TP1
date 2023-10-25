@@ -3,7 +3,6 @@ package TPS.results;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,19 +12,24 @@ import java.util.stream.Collectors;
 import com.github.mauricioaniche.ck.CKClassResult;
 import com.github.mauricioaniche.ck.CKMethodResult;
 
-public class ClassResult {
+public class ClassResult implements Result {
+    
+    public static final String CSV_HEADER = "class, ncloc, cloc, dc, testMethodsLoc, numberOfMethods, numberOfTestMethods, numberOfFunctionalMethods, rfc, wmc";
 
-    private static final String[] ASSERTIONS = {"assertTrue", "assertFalse", 
-                                                "assertEquals", "assertNotEquals",
-                                                "assertSame", "assertNotSame",
-                                                "assertNull", "assertNotNull",
-                                                "assertArrayEquals", "assertThrows",
-                                            };
-    private CKClassResult ckClassResult;
+    CKClassResult ckClassResult;
 
-    public ClassResult(CKClassResult result) {
+    String lastCommitDate;
+    int commitCount;
+
+    public ClassResult(CKClassResult result, String lastCommitDate, int commitCount) {
         this.ckClassResult = result;
+        this.lastCommitDate = lastCommitDate;
+        this.commitCount = commitCount;
+
+        // this.lastCommitDate = gitCmd();
     }
+
+//#region getters
 
     public CKClassResult getCkClassResult() {
         return ckClassResult;
@@ -65,32 +69,6 @@ public class ClassResult {
         double ncloc = ckClassResult.getLoc();
 
         return cloc / (ncloc + cloc);
-    }
-
-    // public int functionalMethodsLoc() {
-    //     return getFunctionalMethods(ckClassResult).values().stream()
-    //         .mapToInt(k -> k.getLoc()).sum();
-    // }
-
-//#region totals
-    public static int totalLoc(Map<String, ClassResult> results) {
-		return results.values().stream().mapToInt(t -> t.getCkClassResult().getLoc()).sum();
-	}
-
-    public static int totalMethods(Map<String, ClassResult> results) {
-		return results.values().stream().mapToInt(t -> t.numberOfMethods()).sum();
-	}
-
-    public static int totalTestMethods(Map<String, ClassResult> results) {
-		return results.values().stream().mapToInt(t -> t.numberOfTestMethods()).sum();
-	}
-
-    public static int totalFunctionalMethods(Map<String, ClassResult> results) {
-		return results.values().stream().mapToInt(t -> t.numberOfFunctionalMethods()).sum();
-	}
-
-    public static int totalTestsLoc(Map<String, ClassResult> results) {
-		return results.values().stream().mapToInt(t -> t.testMethodsLoc()).sum();        
     }
 
 //#endregion
@@ -136,6 +114,7 @@ public class ClassResult {
 
 //#endregion
 
+
     public String toCsv() {
         return ckClassResult.getClassName() 
             + ", " + ckClassResult.getLoc() 
@@ -147,7 +126,13 @@ public class ClassResult {
             + ", " + numberOfFunctionalMethods()
             + ", " + ckClassResult.getRfc()
             + ", " + ckClassResult.getWmc()
+            + ", " + lastCommitDate
+            + ", " + commitCount
         ;
+    }
+
+    public String getCsvHeader() {
+        return CSV_HEADER;
     }
 
     @Override
@@ -162,6 +147,8 @@ public class ClassResult {
             + "\n#FunctionalMethods: " + numberOfFunctionalMethods()
             + "\nrfc: " + ckClassResult.getRfc()
             + "\nwmc: " + ckClassResult.getWmc()
+            + "\nlast commit: " + lastCommitDate
+            + "\ncommit count: " + commitCount
         ;
                 // + "\nfunctionalMethodsLoc: " + functionalMethodsLoc();
     }

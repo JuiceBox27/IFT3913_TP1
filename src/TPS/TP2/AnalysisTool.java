@@ -3,6 +3,7 @@ package TPS.TP2;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,31 +15,43 @@ import com.github.mauricioaniche.ck.ResultWriter;
 import com.github.mauricioaniche.ck.util.FileUtils;
 
 import TPS.results.ClassResult;
+import TPS.results.Result;
+import TPS.results.SourceResult;
 
 public class AnalysisTool {
-	
-	private static final String CSV_HEADER = "class, ncloc, cloc, dc, testMethodsLoc, numberOfMethods, numberOfTestMethods, numberOfFunctionalMethods, rfc, wmc";
-
     public static void main(String[] args) throws IOException {
         Map<String, CKClassResult> results = createCKClassResultsMap(args, false);
         Map<String, ClassResult> myResults = new HashMap<String, ClassResult>();
-        
-        results.forEach((k, v) -> myResults.put(k, new ClassResult(v)));
 
+        results.forEach((k, v) -> myResults.put(k, new ClassResult(v, "day/month/year", 0)));
+		
 		myResults.entrySet().stream()
 		// .filter(e -> e.getValue().numberOfNonTestMethods() > 0)
 		.forEach((e -> System.out.println(e.getValue().toString())));
-
+		
+		List<SourceResult> sourceResults = new ArrayList<SourceResult>();
+		sourceResults.add(createSourceResult(myResults));
+		sourceResults.add(createTestsSourceResult(myResults));
+		
 		System.out.println("+-+-+-+-+-+-+-+");
-		System.out.println("#totLoc: " + ClassResult.totalLoc(myResults));
-		System.out.println("#totTestMethodsLoc: " + ClassResult.totalTestsLoc(myResults));
-		System.out.println("----------");
-		System.out.println("#totMethods: " + ClassResult.totalMethods(myResults));
-		System.out.println("#totTestMethods: " + ClassResult.totalFunctionalMethods(myResults));
-		System.out.println("#totFunctionalMethods: " + ClassResult.totalTestMethods(myResults));
-
-		createCSV(myResults.values().stream().toList(), "test.csv");
+		
+		createCSV(myResults.values().stream().map(t -> (Result)t).toList(), "./etude-jfreechart/TP2/ClassResults.csv");
+		createCSV(sourceResults.stream().map(t -> (Result)t).toList(), "./etude-jfreechart/TP2/SourceResults.csv");
     }
+
+	public static SourceResult createSourceResult(Map<String, ClassResult> results) {
+		int loc = SourceResult.totalLoc(results);
+		int qtMethods = SourceResult.totalFunctionalMethods(results);
+
+		return new SourceResult(loc, qtMethods);
+	}
+
+	public static SourceResult createTestsSourceResult(Map<String, ClassResult> results) {
+		int loc = SourceResult.totalLoc(results);
+		int testsLoc = SourceResult.totalTestMethods(results);
+
+		return new SourceResult(loc, testsLoc);
+	}
 
 	/**
      * The function creates a CSV file and writes the contents of a list of TestFile objects to it.
@@ -46,7 +59,7 @@ public class AnalysisTool {
      * @param testFiles A list of TestFile objects.
      * @return The method is returning a File object.
      */
-    public static File createCSV(List<ClassResult> result, String csvPath) {
+    public static File createCSV(List<Result> result, String csvPath) {
         File outputFile = new File(csvPath);
 
         try {
@@ -55,9 +68,10 @@ public class AnalysisTool {
             outputFile.createNewFile();
             fileWriter = new FileWriter(outputFile);
 
-            fileWriter.append(CSV_HEADER + "\n");
+			fileWriter.append(result.get(0).getCsvHeader() + "\n");
 
-            for (ClassResult testFile : result) {
+
+            for (Result testFile : result) {
                 fileWriter.append(testFile.toCsv() + "\n");
             }
 
