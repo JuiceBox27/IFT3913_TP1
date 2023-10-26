@@ -39,7 +39,7 @@ public class AnalysisTool {
         Map<String, ClassResult> myResults = new HashMap<String, ClassResult>();
 
         results.forEach((k, v) -> {
-			ClassResult cr = new ClassResult(v, "day/month/year", 0);
+			ClassResult cr = new ClassResult(v, GitFinder.gitCmd(v.getFile()), GitFinder.gitFileCommits(v.getFile()));
 			myResults.put(k, cr);
 			System.out.println(cr.toString());
 		});
