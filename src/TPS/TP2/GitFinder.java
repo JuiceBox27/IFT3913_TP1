@@ -7,31 +7,41 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
+import java.nio.file.Path;
 
 public class GitFinder {
-    private static final String GIT_CMD_LAST_COMMIT = "git log -1 --pretty=\"format:%ct\"";
-    private static final String GIT_CMD_COMMITS = "git log filePath | grep ^commit | wc -l";
+    private static final String GIT_REPO_PATH = "../../jfreechart/";
+    private static final String GIT_CMD_LAST_COMMIT = "git log -1 --pretty=\"format:%ct\" --";
+    private static final String GIT_CMD_COMMITS = "git log -- grep ^commit | wc -l --";
 
     public GitFinder() {
     }
 
+    private static String toGitRelativePath(String filePath) {
+        File gitRepo = new File(GIT_REPO_PATH).getAbsoluteFile();
+        File file = new File(filePath).getAbsoluteFile();
+        return gitRepo.toPath().relativize(file.toPath()).toString().replace('\\', '/');
+    }
+
     public static String gitCmd(String filePath) {
         try {
-            ProcessBuilder builder = new ProcessBuilder((GIT_CMD_LAST_COMMIT + "\s" + filePath).split("\s"))
-                .directory(new File("../../jfreechart/"))
+            String relativePath = toGitRelativePath(filePath);
+            String command = GIT_CMD_LAST_COMMIT + " " + relativePath;
+
+            ProcessBuilder builder = new ProcessBuilder(command.split(" "))
+                .directory(new File(GIT_REPO_PATH))
                 .redirectErrorStream(true);
+            
             Process p = builder.start();
             BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
-            String line;
-            line = r.readLine();
+            String line = r.readLine();
 
             Date date = new Date(Long.valueOf(line) * 1000);
 
             SimpleDateFormat sdf = new SimpleDateFormat("MMMM/d/yyyy/h:mm", Locale.ENGLISH);
 		    sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
-            String formattedDate = sdf.format(date);
-
-            return formattedDate;
+            
+            return sdf.format(date);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -42,25 +52,31 @@ public class GitFinder {
 
     public static int gitFileCommits(String filePath) {
         try {
-            String[] arguments = GIT_CMD_COMMITS.split("\s");
-            arguments[2] = filePath.split("..\\..")[1];
-            ProcessBuilder builder = new ProcessBuilder(arguments)
-                .directory(new File("../../jfreechart/"))
+            String relativePath = toGitRelativePath(filePath);
+            String command = "git log " + relativePath;
+    
+            ProcessBuilder builder = new ProcessBuilder(command.split(" "))
+                .directory(new File(GIT_REPO_PATH))
                 .redirectErrorStream(true);
+            
             Process p = builder.start();
             BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
-            int line;
-            line = r.read();
-
-            System.out.println(arguments[2]);
-            System.out.println(filePath);
-            System.out.println(line);
-
-            return line;
+    
+            String line;
+            int count = 0;
+            while ((line = r.readLine()) != null) {
+                if (line.startsWith("commit")) {
+                    count++;
+                }
+            }
+    
+            return count;
+    
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+    
         return 0;
     }
+    
 }
