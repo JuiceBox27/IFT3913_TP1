@@ -33,8 +33,8 @@ public class ClassResult implements Result {
 
         testMethods = getTestMethods(result);
 
-        this.commentsDensity = calcCommentsDensity();
         this.cloc = measureCloc();
+        this.commentsDensity = calcCommentsDensity();
 
         // this.lastCommitDate = gitCmd();
     }
@@ -69,7 +69,7 @@ public class ClassResult implements Result {
     public double calcCommentsDensity() {
         double ncloc = ckClassResult.getLoc();
 
-        return cloc / (ncloc + cloc);
+        return (double)(cloc / (ncloc + cloc));
     }
 
     public int measureCloc() {
