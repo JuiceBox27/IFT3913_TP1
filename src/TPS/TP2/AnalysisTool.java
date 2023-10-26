@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import com.github.mauricioaniche.ck.CK;
 import com.github.mauricioaniche.ck.CKClassResult;
@@ -15,42 +16,43 @@ import com.github.mauricioaniche.ck.ResultWriter;
 import com.github.mauricioaniche.ck.util.FileUtils;
 
 import TPS.results.ClassResult;
+import TPS.results.ProjectResult;
 import TPS.results.Result;
 import TPS.results.SourceResult;
+import TPS.results.TestsResult;
 
 public class AnalysisTool {
-    public static void main(String[] args) throws IOException {
-        Map<String, CKClassResult> results = createCKClassResultsMap(args, false);
+    public static void main(String[] args) {
+		long startTime = System.currentTimeMillis();
+
+		try {
+			execute(args);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		debugExecTime(startTime);
+	}
+
+	public static void execute(String[] args) throws IOException {
+		Map<String, CKClassResult> results = createCKClassResultsMap(args, false);
         Map<String, ClassResult> myResults = new HashMap<String, ClassResult>();
 
-        results.forEach((k, v) -> myResults.put(k, new ClassResult(v, "day/month/year", 0)));
-		
-		myResults.entrySet().stream()
-		// .filter(e -> e.getValue().numberOfNonTestMethods() > 0)
-		.forEach((e -> System.out.println(e.getValue().toString())));
+        results.forEach((k, v) -> {
+			ClassResult cr = new ClassResult(v, "day/month/year", 0);
+			myResults.put(k, cr);
+			System.out.println(cr.toString());
+		});
 		
 		List<SourceResult> sourceResults = new ArrayList<SourceResult>();
-		sourceResults.add(createSourceResult(myResults));
-		sourceResults.add(createTestsSourceResult(myResults));
+		sourceResults.add(new ProjectResult(myResults));
+		sourceResults.add(new SourceResult(myResults));
+		sourceResults.add(new TestsResult(myResults));
 		
 		System.out.println("+-+-+-+-+-+-+-+");
 		
 		createCSV(myResults.values().stream().map(t -> (Result)t).toList(), "./etude-jfreechart/TP2/ClassResults.csv");
 		createCSV(sourceResults.stream().map(t -> (Result)t).toList(), "./etude-jfreechart/TP2/SourceResults.csv");
-    }
-
-	public static SourceResult createSourceResult(Map<String, ClassResult> results) {
-		int loc = SourceResult.totalLoc(results);
-		int qtMethods = SourceResult.totalFunctionalMethods(results);
-
-		return new SourceResult(loc, qtMethods);
-	}
-
-	public static SourceResult createTestsSourceResult(Map<String, ClassResult> results) {
-		int loc = SourceResult.totalLoc(results);
-		int testsLoc = SourceResult.totalTestMethods(results);
-
-		return new SourceResult(loc, testsLoc);
 	}
 
 	/**
@@ -161,4 +163,15 @@ public class AnalysisTool {
 		
 		// writer.flushAndClose();
     }
+
+	private static void debugExecTime(long startTime) {
+		long totTime = System.currentTimeMillis() - startTime;
+
+		String execTime = String.format("%d min, %d sec",
+			TimeUnit.MILLISECONDS.toMinutes(totTime),
+			TimeUnit.MILLISECONDS.toSeconds(totTime));
+
+		System.out.println(totTime);
+		System.out.println(execTime);
+	}
 }

@@ -21,10 +21,20 @@ public class ClassResult implements Result {
     String lastCommitDate;
     int commitCount;
 
+    Map<CKMethodResult, Set<String>> testMethods;
+
+    double commentsDensity;
+    int cloc;
+
     public ClassResult(CKClassResult result, String lastCommitDate, int commitCount) {
         this.ckClassResult = result;
         this.lastCommitDate = lastCommitDate;
         this.commitCount = commitCount;
+
+        testMethods = getTestMethods(result);
+
+        this.commentsDensity = calcCommentsDensity();
+        this.cloc = measureCloc();
 
         // this.lastCommitDate = gitCmd();
     }
@@ -44,15 +54,25 @@ public class ClassResult implements Result {
     }
 
     public int numberOfTestMethods() {
-        return getTestMethods(ckClassResult).size();
+        return testMethods.size();
     }
 
     public int testMethodsLoc() {
-        return getTestMethods(ckClassResult).keySet().stream()
+        return testMethods.keySet().stream()
             .mapToInt(k -> k.getLoc()).sum();
     }
+//#endregion
 
-    public int cloc() {
+
+//#region measures and calculations
+
+    public double calcCommentsDensity() {
+        double ncloc = ckClassResult.getLoc();
+
+        return cloc / (ncloc + cloc);
+    }
+
+    public int measureCloc() {
         try {
             String content = new String(Files.readAllBytes(Paths.get(ckClassResult.getFile())));
     
@@ -64,12 +84,6 @@ public class ClassResult implements Result {
         return 0;
     }
 
-    public double commentsDensity() {
-        double cloc = cloc();
-        double ncloc = ckClassResult.getLoc();
-
-        return cloc / (ncloc + cloc);
-    }
 
 //#endregion
 
@@ -118,8 +132,8 @@ public class ClassResult implements Result {
     public String toCsv() {
         return ckClassResult.getClassName() 
             + ", " + ckClassResult.getLoc() 
-            + ", " + cloc()
-            + ", " + commentsDensity()
+            + ", " + cloc
+            + ", " + commentsDensity
             + ", " + testMethodsLoc()
             + ", " + numberOfMethods()
             + ", " + numberOfTestMethods()
@@ -139,8 +153,8 @@ public class ClassResult implements Result {
     public String toString() {
         return  "-----\n" + ckClassResult.getClassName() 
             + "\nncloc: " + ckClassResult.getLoc() 
-            + "\ncloc: " + cloc()
-            + "\nDC: " + commentsDensity()
+            + "\ncloc: " + cloc
+            + "\nDC: " + commentsDensity
             + "\ntestsLoc: " + testMethodsLoc()
             + "\n#methods: " + numberOfMethods() 
             + "\n#testMethods: " + numberOfTestMethods()

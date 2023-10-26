@@ -3,48 +3,44 @@ package TPS.results;
 import java.util.Map;
 
 public class SourceResult implements Result {
-    public static final String CSV_HEADER = "type, loc";
+    public static final String CSV_HEADER = "type, loc, qtMethods";
+    public static final String TYPE_PROJECT = "Project";
+    public static final String TYPE_FUNCTIONAL = "Functional";
+    public static final String TYPE_TESTS = "Tests";
 
     String type;
     int loc;
     int qtMethods;
     // int 
 
-    public SourceResult(int loc, int qtMethods) {
-        this.loc = loc;
-        this.qtMethods = qtMethods;
+    public SourceResult(Map<String, ClassResult> results) {
+        this(TYPE_FUNCTIONAL, results);
+    }
+
+    public SourceResult(String type, Map<String, ClassResult> results) {
+        this.type = type;
+        this.loc = totalLoc(results);
+        this.qtMethods = totalMethods(results);
     }
 
 //#region totals
-    public static int totalLoc(Map<String, ClassResult> results) {
-		return results.values().stream().mapToInt(t -> t.getCkClassResult().getLoc()).sum();
+
+    public int totalLoc(Map<String, ClassResult> results) {
+		return results.values().stream().filter(t -> t.numberOfTestMethods() == 0).mapToInt(t -> t.getCkClassResult().getLoc()).sum();
 	}
 
-    public static int totalMethods(Map<String, ClassResult> results) {
-		return results.values().stream().mapToInt(t -> t.numberOfMethods()).sum();
-	}
-
-    public static int totalTestMethods(Map<String, ClassResult> results) {
-		return results.values().stream().mapToInt(t -> t.numberOfTestMethods()).sum();
-	}
-
-    public static int totalFunctionalMethods(Map<String, ClassResult> results) {
+    public int totalMethods(Map<String, ClassResult> results) {
 		return results.values().stream().mapToInt(t -> t.numberOfFunctionalMethods()).sum();
 	}
 
-    public static int totalTestsLoc(Map<String, ClassResult> results) {
-		return results.values().stream().filter(t -> t.numberOfTestMethods() > 0).mapToInt(t -> t.getCkClassResult().getLoc()).sum();
-    }
-
 //#endregion
-
-    public static double codeTestsLocRatio(Map<String, ClassResult> results) {
-		return (double)SourceResult.totalLoc(results) / (double)SourceResult.totalTestsLoc(results);
-	}
 
     @Override
     public String toCsv() {
-        return "";
+        return  type
+            + ", " + loc
+            + ", " + qtMethods
+        ;
     }
     
     @Override
