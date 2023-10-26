@@ -38,8 +38,10 @@ public class AnalysisTool {
 		Map<String, CKClassResult> results = createCKClassResultsMap(args, false);
         Map<String, ClassResult> myResults = new HashMap<String, ClassResult>();
 
+		GitFinder gitFinder = new GitFinder(args[0]);
+
         results.forEach((k, v) -> {
-			ClassResult cr = new ClassResult(v, GitFinder.gitCmd(v.getFile()), GitFinder.gitFileCommits(v.getFile()));
+			ClassResult cr = new ClassResult(v, gitFinder.gitCmd(v.getFile()), gitFinder.gitFileCommits(v.getFile()));
 			myResults.put(k, cr);
 			System.out.println(cr.toString());
 		});
@@ -174,8 +176,7 @@ public class AnalysisTool {
 	private static void debugExecTime(long startTime) {
 		long totTime = System.currentTimeMillis() - startTime;
 
-		String execTime = String.format("%d min, %d sec",
-			TimeUnit.MILLISECONDS.toMinutes(totTime),
+		String execTime = String.format("%d secondes",
 			TimeUnit.MILLISECONDS.toSeconds(totTime));
 
 		System.out.println(totTime);

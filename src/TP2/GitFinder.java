@@ -9,26 +9,22 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 public class GitFinder {
-    private static final String GIT_REPO_PATH = "../../jfreechart/";
     private static final String GIT_CMD_LAST_COMMIT = "git log -1 --pretty=\"format:%ct\" --";
-    private static final String GIT_CMD_COMMITS = "git log -- grep ^commit | wc -l --";
+    private static final String GIT_CMD_COMMITS = "git log\s";
 
-    public GitFinder() {
+    private String gitRepoPath;
+
+    public GitFinder(String gitRepoPath) {
+        this.gitRepoPath = gitRepoPath;
     }
 
-    private static String toGitRelativePath(String filePath) {
-        File gitRepo = new File(GIT_REPO_PATH).getAbsoluteFile();
-        File file = new File(filePath).getAbsoluteFile();
-        return gitRepo.toPath().relativize(file.toPath()).toString().replace('\\', '/');
-    }
-
-    public static String gitCmd(String filePath) {
+    public String gitCmd(String filePath) {
         try {
             String relativePath = toGitRelativePath(filePath);
             String command = GIT_CMD_LAST_COMMIT + " " + relativePath;
 
             ProcessBuilder builder = new ProcessBuilder(command.split(" "))
-                .directory(new File(GIT_REPO_PATH))
+                .directory(new File(gitRepoPath))
                 .redirectErrorStream(true);
             
             Process p = builder.start();
@@ -49,13 +45,13 @@ public class GitFinder {
         return null;
     }
 
-    public static int gitFileCommits(String filePath) {
+    public int gitFileCommits(String filePath) {
         try {
             String relativePath = toGitRelativePath(filePath);
-            String command = "git log " + relativePath;
+            String command = GIT_CMD_COMMITS + relativePath;
     
             ProcessBuilder builder = new ProcessBuilder(command.split("\s"))
-                .directory(new File(GIT_REPO_PATH))
+                .directory(new File(gitRepoPath))
                 .redirectErrorStream(true);
             
             Process p = builder.start();
@@ -76,6 +72,12 @@ public class GitFinder {
         }
     
         return 0;
+    }
+
+    private String toGitRelativePath(String filePath) {
+        File gitRepo = new File(gitRepoPath).getAbsoluteFile();
+        File file = new File(filePath).getAbsoluteFile();
+        return gitRepo.toPath().relativize(file.toPath()).toString().replace('\\', '/');
     }
     
 }

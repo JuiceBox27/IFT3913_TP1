@@ -14,7 +14,7 @@ import com.github.mauricioaniche.ck.CKMethodResult;
 
 public class ClassResult implements Result {
     
-    public static final String CSV_HEADER = "class, ncloc, cloc, dc, testMethodsLoc, numberOfMethods, numberOfTestMethods, numberOfFunctionalMethods, rfc, wmc";
+    public static final String CSV_HEADER = "class, ncloc, cloc, dc, testMethodsLoc, numberOfMethods, numberOfTestMethods, numberOfFunctionalMethods, rfc, wmc, gitFileAge, gitTotCommits";
 
     CKClassResult ckClassResult;
 

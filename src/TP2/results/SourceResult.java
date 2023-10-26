@@ -3,7 +3,7 @@ package TP2.results;
 import java.util.Map;
 
 public class SourceResult implements Result {
-    public static final String CSV_HEADER = "type, loc, qtMethods";
+    public static final String CSV_HEADER = "type, loc, qtMethods, codeSize/testsSize";
     public static final String TYPE_PROJECT = "Project";
     public static final String TYPE_FUNCTIONAL = "Functional";
     public static final String TYPE_TESTS = "Tests";

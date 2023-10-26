@@ -1,4 +1,4 @@
-type, loc, qtMethods
+type, loc, qtMethods, codeSize/testsSize
 Functional, 292, 188, N/A
 Tests, 19160, 1213, N/A
 Project, 19452, 1401, 1.015240083507307

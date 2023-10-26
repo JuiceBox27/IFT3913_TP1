@@ -1,4 +1,4 @@
-class, ncloc, cloc, dc, testMethodsLoc, numberOfMethods, numberOfTestMethods, numberOfFunctionalMethods, rfc, wmc
+class, ncloc, cloc, dc, testMethodsLoc, numberOfMethods, numberOfTestMethods, numberOfFunctionalMethods, rfc, wmc, gitFileAge, gitTotCommits
 org.jfree.chart.annotations.CategoryLineAnnotationTest, 85, 81, 0.4879518072289157, 83, 6, 6, 0, 16, 6, January/3/2022/6:42, 10
 org.jfree.chart.annotations.XYPolygonAnnotationTest, 58, 87, 0.6, 56, 5, 5, 0, 9, 5, January/3/2022/6:42, 10
 org.jfree.chart.renderer.category.StackedAreaRendererTest, 53, 71, 0.5725806451612904, 51, 6, 6, 0, 14, 6, January/3/2022/6:42, 11

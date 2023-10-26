@@ -13,11 +13,20 @@ public class TestsResult extends SourceResult {
 
     @Override
     public int totalLoc(Map<String, ClassResult> results) {
-		return results.values().stream().filter(t -> t.numberOfTestMethods() > 0).mapToInt(t -> t.getCkClassResult().getLoc()).sum();
+		  return results.values().stream().filter(t -> t.numberOfTestMethods() > 0).mapToInt(t -> t.getCkClassResult().getLoc()).sum();
     }
 
     @Override
     public int totalMethods(Map<String, ClassResult> results) {
-		return results.values().stream().mapToInt(t -> t.numberOfTestMethods()).sum();
-	}
+		  return results.values().stream().mapToInt(t -> t.numberOfTestMethods()).sum();
+	  }
+
+    @Override
+    public String toCsv() {
+        return type
+            + ", " + loc
+            + ", " + qtMethods
+            + ", " + "N/A"
+        ;
+    }
 }
