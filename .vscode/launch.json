@@ -4,76 +4,9 @@
             "type": "java",
             "name": "AnalysisTool",
             "request": "launch",
-            "mainClass": "TPS.TP2.AnalysisTool",
-            "projectName": "IFT3913_TP1_7ad920dd",
-            "args": "../../jfreechart/src/ True 0 True ./etude-jfreechart/TP2/TP2"
-        },
-        {
-            "type": "java",
-            "name": "AnalysisTool",
-            "request": "launch",
-            "mainClass": "TPS.TP2.AnalysisTool",
+            "mainClass": "TP2.AnalysisTool",
             "projectName": "IFT3913_TP1_2a6f3a6a",
-            "args": "../../jfreechart/src/ True 0 True ./etude-jfreechart/TP2/TP2"
+            "args": "../../jfreechart/src/test/java/org/jfree/chart True 0 True ./etude-jfreechart/TP2/TP2"
         },
-        {
-            "type": "java",
-            "name": "TropComp",
-            "request": "launch",
-            "mainClass": "TPS.TropComp",
-            "projectName": "TP1_f3bfa4a3"
-        },
-        {
-            "type": "java",
-            "name": "tropcomp",
-            "request": "launch",
-            "mainClass": "tp1.tropcomp",
-            "projectName": "TP1_f3bfa4a3",
-            "args": "-o test2.csv ../jfreechart/src/test 10"
-        },
-        {
-            "type": "java",
-            "name": "tls",
-            "request": "launch",
-            "mainClass": "tp1.tls",
-            "projectName": "TP1_f3bfa4a3"
-        },
-        {
-            "type": "java",
-            "name": "tloc",
-            "request": "launch",
-            "mainClass": "tloc",
-            "projectName": "TP1_f3bfa4a3"
-        },
-        {
-            "type": "java",
-            "name": "tls",
-            "request": "launch",
-            "mainClass": "tls",
-            "projectName": "TP1_f3bfa4a3",
-            "args": "-o test1.csv ../jfreechart/src/test"
-        },
-        {
-            "type": "java",
-            "name": "tropcomp",
-            "request": "launch",
-            "mainClass": "tropcomp",
-            "projectName": "TP1_f3bfa4a3",
-            "args": "-o test2.csv ../jfreechart/src/test 5"
-        },
-        {
-            "type": "java",
-            "name": "Launch with Arguments Prompt",
-            "request": "launch",
-            "mainClass": "tropcomp",
-            "args": "-o test2.csv ../jfreechart/src/test 3"
-        },
-        {
-            "type": "java",
-            "name": "launc tls with args",
-            "request": "launch",
-            "mainClass": "tls",
-            "args": "-o test2.csv ../jfreechart/src/test"
-        }
     ]
 }

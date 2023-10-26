@@ -1,4 +1,4 @@
-package TPS.TP2;
+package TP2;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -7,7 +7,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
-import java.nio.file.Path;
 
 public class GitFinder {
     private static final String GIT_REPO_PATH = "../../jfreechart/";
@@ -55,7 +54,7 @@ public class GitFinder {
             String relativePath = toGitRelativePath(filePath);
             String command = "git log " + relativePath;
     
-            ProcessBuilder builder = new ProcessBuilder(command.split(" "))
+            ProcessBuilder builder = new ProcessBuilder(command.split("\s"))
                 .directory(new File(GIT_REPO_PATH))
                 .redirectErrorStream(true);
             

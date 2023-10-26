@@ -1,4 +1,4 @@
-package TPS.results;
+package TP2.results;
 
 public interface Result {
     static final String[] ASSERTIONS = {"assertTrue", "assertFalse", 

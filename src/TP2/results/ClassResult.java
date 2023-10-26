@@ -1,4 +1,4 @@
-package TPS.results;
+package TP2.results;
 
 import java.io.IOException;
 import java.nio.file.Files;

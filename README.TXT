@@ -1,8 +1,10 @@
- # TP1
+# TP 2
 
 Noms: Stefan Roman, Simo Hakim
 
 https://github.com/JuiceBox27/IFT3913_TP1
+
+Librairie utilisée: https://github.com/mauricioaniche/ck 
 
 ## Création des jars
 
@@ -26,12 +28,6 @@ java -jar tassert.jar <chemin-de-l'entrée>
 java -jar tls.jar -o <chemin-à-la-sortie.csv> <chemin-de-l'entrée>
 java -jar tropcomp.jar -o <chemin-à-la-sortie.csv> <chemin-de-l'entrée> <seuil>
 
-## etude-jfreechart
-Comment exécuter tropcomp pour avoir les fichiers dans etude-jfreechart aux noms respectifs de: 1percent.csv, 5percent.csv, 10percent.csv.
-
-java -jar ./jars/tropcomp.jar -o etude-jfreechart/1percent.csv ../jfreechart/src/test 1
-java -jar ./jars/tropcomp.jar -o etude-jfreechart/5percent.csv ../jfreechart/src/test 5
-java -jar ./jars/tropcomp.jar -o etude-jfreechart/10percent.csv ../jfreechart/src/test 10
 
 ## Commentaires auto-générés
 https://github.com/mintlify/writer

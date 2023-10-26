@@ -1,4 +1,4 @@
-package TPS.TP2;
+package TP2;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -15,11 +15,11 @@ import com.github.mauricioaniche.ck.CKNotifier;
 import com.github.mauricioaniche.ck.ResultWriter;
 import com.github.mauricioaniche.ck.util.FileUtils;
 
-import TPS.results.ClassResult;
-import TPS.results.ProjectResult;
-import TPS.results.Result;
-import TPS.results.SourceResult;
-import TPS.results.TestsResult;
+import TP2.results.ClassResult;
+import TP2.results.ProjectResult;
+import TP2.results.Result;
+import TP2.results.SourceResult;
+import TP2.results.TestsResult;
 
 public class AnalysisTool {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package TPS.results;
+package TP2.results;
 
 import java.util.Map;
 
