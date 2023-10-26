@@ -44,15 +44,22 @@ public class AnalysisTool {
 			System.out.println(cr.toString());
 		});
 		
-		List<SourceResult> sourceResults = new ArrayList<SourceResult>();
-		sourceResults.add(new ProjectResult(myResults));
-		sourceResults.add(new SourceResult(myResults));
-		sourceResults.add(new TestsResult(myResults));
+		List<SourceResult> sourceResults = createSourceResults(myResults);
 		
 		System.out.println("+-+-+-+-+-+-+-+");
 		
 		createCSV(myResults.values().stream().map(t -> (Result)t).toList(), "./etude-jfreechart/TP2/ClassResults.csv");
 		createCSV(sourceResults.stream().map(t -> (Result)t).toList(), "./etude-jfreechart/TP2/SourceResults.csv");
+	}
+
+	public static List<SourceResult> createSourceResults(Map<String, ClassResult> results) {
+		List<SourceResult> sourceResults = new ArrayList<SourceResult>();
+		sourceResults.add(new SourceResult(results));
+		sourceResults.add(new TestsResult(results));
+		// Create the project results obj. using the loc of tests for "ratio taille code / taille tests"
+		sourceResults.add(new ProjectResult(results, sourceResults.get(1).getLoc()));
+
+		return sourceResults;
 	}
 
 	/**
