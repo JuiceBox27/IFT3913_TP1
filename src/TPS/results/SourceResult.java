@@ -35,21 +35,26 @@ public class SourceResult implements Result {
 
 //#endregion
 
+    public int getLoc() {
+        return loc;
+    }
+
     @Override
     public String toCsv() {
         return  type
             + ", " + loc
             + ", " + qtMethods
+            + ", " + "N/A"
         ;
-    }
-    
-    @Override
-    public String toString() {
-        return  "-----\n";
     }
 
     @Override
     public String getCsvHeader() {
         return CSV_HEADER;
+    }
+
+    @Override
+    public String toString() {
+        return  "-----\n";
     }
 }

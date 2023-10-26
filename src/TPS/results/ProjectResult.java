@@ -6,14 +6,14 @@ public class ProjectResult extends SourceResult {
 
     double codeTestsLocRatio;
 
-    public ProjectResult(Map<String, ClassResult> results) {
+    public ProjectResult(Map<String, ClassResult> results, int testsLoc) {
         super(TYPE_PROJECT, results);
         
-        this.codeTestsLocRatio = codeTestsLocRatio(results);
+        this.codeTestsLocRatio = codeTestsLocRatio(results, testsLoc);
     }
 
-    private double codeTestsLocRatio(Map<String, ClassResult> results) {
-		return (double)totalLoc(results) / (double)totalLoc(results);
+    private double codeTestsLocRatio(Map<String, ClassResult> results, int testsLoc) {
+		return (double)loc / (double)testsLoc;
 	}
     
     @Override
