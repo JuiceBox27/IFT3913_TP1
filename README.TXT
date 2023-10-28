@@ -20,11 +20,13 @@ jar cvfe jars/AnalysisTool.jar tp2.AnalysisTool -C bin/ tp2/ lib/
 
 # Comment l'utiliser
 
-java -jar tloc.jar <chemin-de-l'entrée>
-java -jar tassert.jar <chemin-de-l'entrée>
-java -jar tls.jar -o <chemin-à-la-sortie.csv> <chemin-de-l'entrée>
-java -jar tropcomp.jar -o <chemin-à-la-sortie.csv> <chemin-de-l'entrée> <seuil>
+java -jar AnalysisTool.jar <chemin-de-l'entrée> <dossier-à-la-sortie.csv>
 
+ex.: java -jar AnalysisTool.jar ../../jfreechart/src/ ./etude-jfreechart
+
+Veuillez prévoir un peu de temps pour laisser le programme s'exécuter. Il a un temps moyen de 150 secondes (2min30).
+Il semblait raisonnable comme temps tenant compte que plusieurs outils d'analyse de code ont un temps similaire pour des projets de taille similaires.
+Ceci est une évidence par pratique personnel et en milieu professionnel d'usage d'autres outils. 
 
 ## Commentaires auto-générés
 https://github.com/mintlify/writer

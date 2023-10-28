@@ -40,7 +40,7 @@ public class AnalysisTool {
 	 * finally creates CSV files for the ClassResults and SourceResults.
 	 */
 	public static void execute(String[] args) throws IOException {
-		Map<String, CKClassResult> results = createCKClassResultsMap(args, false);
+		Map<String, CKClassResult> results = createCKClassResultsMap(new String[] {args[0], "True", "0", "True", args[1]}, false);
         Map<String, ClassResult> myResults = new HashMap<String, ClassResult>();
 
 		GitFinder gitFinder = new GitFinder(args[0]);
@@ -54,11 +54,20 @@ public class AnalysisTool {
 		List<SourceResult> sourceResults = createSourceResults(myResults);
 		
 		System.out.println("+-+-+-+-+-+-+-+");
-		
-		createCSV(myResults.values().stream().map(t -> (Result)t).toList(), "./etude-jfreechart/TP2/ClassResults.csv");
-		createCSV(sourceResults.stream().map(t -> (Result)t).toList(), "./etude-jfreechart/TP2/SourceResults.csv");
+
+		createTestsClassResultFilteredCsv(myResults, args[1]);
+
+		createCSV(myResults.values().stream().map(t -> (Result)t).toList(), args[1] + "/ClassResults.csv");
+		createCSV(sourceResults.stream().map(t -> (Result)t).toList(), args[1] + "/SourceResults.csv");
 	}
 
+	/**
+	 * The function creates a list of SourceResult objects based on the input map of ClassResult objects.
+	 * 
+	 * @param results A map where the keys are strings representing source file names and the values are
+	 * ClassResult objects representing the results of analyzing each source file.
+	 * @return The method is returning a List of SourceResult objects.
+	 */
 	public static List<SourceResult> createSourceResults(Map<String, ClassResult> results) {
 		List<SourceResult> sourceResults = new ArrayList<SourceResult>();
 		sourceResults.add(new SourceResult(results));
@@ -67,6 +76,20 @@ public class AnalysisTool {
 		sourceResults.add(new ProjectResult(results, sourceResults.get(1).getLoc()));
 
 		return sourceResults;
+	}
+
+	public static void createTestsClassResultFilteredCsv(Map<String, ClassResult> results, String filePath) {
+		createCSV(
+			results.values()
+			.stream()
+			.filter(t -> (
+				t.numberOfTestMethods() > 0 
+				&& t.getCommentsDensity() > 0.6
+				&& (double)t.getCkClassResult().getRfc() <  (double)(t.numberOfTestMethods() * (double)(2 * (double)(1 + t.getCommentsDensity())))
+				&& t.getCkClassResult().getWmc() <= t.numberOfTestMethods()
+				))
+			.map(t -> (Result)t)
+			.toList(), filePath + "/TestClassResults.csv");
 	}
 
 	/**

@@ -21,9 +21,9 @@ public class GitFinder {
     public String gitCmd(String filePath) {
         try {
             String relativePath = toGitRelativePath(filePath);
-            String command = GIT_CMD_LAST_COMMIT + " " + relativePath;
+            String command = GIT_CMD_LAST_COMMIT + "\s" + relativePath;
 
-            ProcessBuilder builder = new ProcessBuilder(command.split(" "))
+            ProcessBuilder builder = new ProcessBuilder(command.split("\s"))
                 .directory(new File(gitRepoPath))
                 .redirectErrorStream(true);
             

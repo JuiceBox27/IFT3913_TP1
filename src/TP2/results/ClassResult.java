@@ -31,7 +31,7 @@ public class ClassResult implements Result {
         this.lastCommitDate = lastCommitDate;
         this.commitCount = commitCount;
 
-        testMethods = getTestMethods(result);
+        testMethods = calcTestMethods(result);
 
         this.cloc = measureCloc();
         this.commentsDensity = calcCommentsDensity();
@@ -112,7 +112,7 @@ public class ClassResult implements Result {
      * @return The method is returning a Map object, where the keys are CKMethodResult objects and the
      * values are Set objects containing strings.
      */
-    private static Map<CKMethodResult, Set<String>> getTestMethods(CKClassResult ckClassResult) {
+    private static Map<CKMethodResult, Set<String>> calcTestMethods(CKClassResult ckClassResult) {
         Map<CKMethodResult, Set<String>> methodsWithAssertions = new HashMap<CKMethodResult, Set<String>>();
 
         ckClassResult.getMethods().stream()
@@ -150,6 +150,13 @@ public class ClassResult implements Result {
 
 //#endregion
 
+    public Map<CKMethodResult, Set<String>> getTestMethods() {
+        return testMethods;
+    }
+
+    public double getCommentsDensity() {
+        return commentsDensity;
+    }
 
     public String toCsv() {
         return ckClassResult.getClassName() 
