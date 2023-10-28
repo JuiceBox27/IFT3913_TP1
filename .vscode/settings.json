@@ -1,7 +1,0 @@
-{
-    "java.project.exportJar.targetPath": "${workspaceFolder}/jars/${fileBasenameNoExtension}.jar",
-    "java.project.outputPath": "bin",
-    "java.project.sourcePaths": [
-        "src"
-    ],
-}

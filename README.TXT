@@ -1,8 +1,14 @@
- # TP1
+# TP 2
 
-Noms: Stefan Roman
+Noms: Stefan Roman, Simo Hakim
 
-https://github.com/JuiceBox27/IFT3913_TP1
+https://github.com/JuiceBox27/IFT3913_TP1/tree/TP2_V2
+
+Librairie utilisée: https://github.com/mauricioaniche/ck 
+
+## Pour voir les résultats de l'étude jfreechart il suffit d'aller dans le dossier etude-jfreechart et voir les trois fichiers de résultats que l'application génère.
+
+## Pour accéder au projet il suffit de suivre les étapes de création de jars.
 
 ## Création des jars
 
@@ -10,28 +16,23 @@ Toutes les commandes sont assumées du root du projet.
 
 ### Premièrement compiler le code en classes
 
-javac .\src\tp1\* -d .\bin\tp1\
+javac ./src/TP2/*.java -d ./bin/TP2/* -cp ./lib/* -sourcepath ./src/TP2/
 
 ### Deuxièmement créer les jars
 
-jar cvfe jars/tloc.jar tp1.tloc  -C bin/ tp1/ lib/
-jar cvfe jars/tassert.jar tp1.tassert  -C bin/ tp1/ lib/
-jar cvfe jars/tls.jar tp1.tls  -C bin/ tp1/ lib/
-jar cvfe jars/tropcomp.jar tp1.tropcomp  -C bin/ tp1/ lib/
+jar cvfe jars/AnalysisTool.jar tp2.AnalysisTool -C bin/ tp2/ lib/
 
 # Comment l'utiliser
 
-java -jar tloc.jar <chemin-de-l'entrée>
-java -jar tassert.jar <chemin-de-l'entrée>
-java -jar tls.jar -o <chemin-à-la-sortie.csv> <chemin-de-l'entrée>
-java -jar tropcomp.jar -o <chemin-à-la-sortie.csv> <chemin-de-l'entrée> <seuil>
+java -jar AnalysisTool.jar <chemin-de-l'entrée> <dossier-à-la-sortie.csv>
 
-## etude-jfreechart
-Comment exécuter tropcomp pour avoir les fichiers dans etude-jfreechart aux noms respectifs de: 1percent.csv, 5percent.csv, 10percent.csv.
+ex.: java -jar AnalysisTool.jar ../../jfreechart/src/ ./etude-jfreechart
 
-java -jar ./jars/tropcomp.jar -o etude-jfreechart/1percent.csv ../jfreechart/src/test 1
-java -jar ./jars/tropcomp.jar -o etude-jfreechart/5percent.csv ../jfreechart/src/test 5
-java -jar ./jars/tropcomp.jar -o etude-jfreechart/10percent.csv ../jfreechart/src/test 10
+Il est nécessaire d'avoir l'outil de ligne de commande git pour utiliser le programme.
+
+Veuillez prévoir un peu de temps pour laisser le programme s'exécuter. Il a un temps moyen de 150 secondes (2min30).
+Il semblait raisonnable comme temps tenant compte que plusieurs outils d'analyse de code ont un temps similaire pour des projets de taille similaires.
+Ceci est une évidence par pratique personnel et en milieu professionnel d'usage d'autres outils. 
 
 ## Commentaires auto-générés
 https://github.com/mintlify/writer
