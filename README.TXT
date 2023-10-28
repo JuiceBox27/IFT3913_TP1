@@ -2,6 +2,9 @@
 
 Noms: Stefan Roman, Simo Hakim
 
+https://github.com/JuiceBox27/IFT3913_TP1/
+
+Étant donné que nous avons merge avant d'envoyer le devoir, pour aller voir tous les commits vous pouvez allez dans la branche suivante:
 https://github.com/JuiceBox27/IFT3913_TP1/tree/TP2_V2
 
 Librairie utilisée: https://github.com/mauricioaniche/ck 
