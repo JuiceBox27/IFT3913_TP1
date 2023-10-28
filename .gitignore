@@ -4,3 +4,4 @@ bin/*
 bin/**
 .vscode/**
 .vscode/*
+.vscode/launch.json
