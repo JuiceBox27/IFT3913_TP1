@@ -1,4 +1,6 @@
 
 jfreechart-master/**
+bin/*
 bin/**
 .vscode/**
+.vscode/*
