@@ -12,14 +12,11 @@ Toutes les commandes sont assumées du root du projet.
 
 ### Premièrement compiler le code en classes
 
-javac .\src\tp1\* -d .\bin\tp1\
+javac ./src/TP2/*.java -d ./bin/ -cp ./lib/* -sourcepath ./src
 
 ### Deuxièmement créer les jars
 
-jar cvfe jars/tloc.jar tp1.tloc  -C bin/ tp1/ lib/
-jar cvfe jars/tassert.jar tp1.tassert  -C bin/ tp1/ lib/
-jar cvfe jars/tls.jar tp1.tls  -C bin/ tp1/ lib/
-jar cvfe jars/tropcomp.jar tp1.tropcomp  -C bin/ tp1/ lib/
+jar cvfe jars/AnalysisTool.jar tp2.AnalysisTool -C bin/ tp2/ lib/
 
 # Comment l'utiliser
 

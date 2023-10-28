@@ -27,6 +27,7 @@ public class TestsResult extends SourceResult {
             + ", " + loc
             + ", " + qtMethods
             + ", " + "N/A"
+            + ", " + locPerMethod
         ;
     }
 }

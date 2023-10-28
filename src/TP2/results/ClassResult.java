@@ -66,12 +66,27 @@ public class ClassResult implements Result {
 
 //#region measures and calculations
 
+    /**
+     * The function calculates the comments density by dividing the number of lines of comments by the
+     * total number of lines of code.
+     * 
+     * @return The method is returning the comments density, which is calculated by dividing the number
+     * of lines of comments (cloc) by the sum of the number of non-comment lines of code (ncloc) and
+     * the number of lines of comments (cloc).
+     */
     public double calcCommentsDensity() {
         double ncloc = ckClassResult.getLoc();
 
         return (double)(cloc / (ncloc + cloc));
     }
 
+    /**
+     * The function measures the number of lines of code in a file, excluding blank lines and a
+     * specified number of lines at the beginning.
+     * 
+     * @return The method is returning the difference between the number of non-blank lines in the
+     * content of a file and the value of `ckClassResult.getLoc()`.
+     */
     public int measureCloc() {
         try {
             String content = new String(Files.readAllBytes(Paths.get(ckClassResult.getFile())));
@@ -89,21 +104,14 @@ public class ClassResult implements Result {
 
 //#region private methods for lambda exps. (helper methods)
 
-    private static Map<String, CKMethodResult> getFunctionalMethods(CKClassResult ckClassResult) {
-        Map<String, CKMethodResult> methodsWithoutAssertions = new HashMap<String, CKMethodResult>();
-
-        ckClassResult.getMethods().stream()
-        .filter(m -> isFunctionalMethod(m)).forEach(m ->
-            methodsWithoutAssertions.put(m.getMethodName(), m)
-        );
-
-        return methodsWithoutAssertions;
-    }
-
-    private static boolean isFunctionalMethod(CKMethodResult m) {
-        return m.getMethodInvocations().stream().anyMatch(i -> !isInvocationAssertion(i));
-    }
-
+    /**
+     * The function `getTestMethods` takes a `CKClassResult` object and returns a map of methods with
+     * their corresponding assertions.
+     * 
+     * @param ckClassResult The parameter `ckClassResult` is an object of type `CKClassResult`.
+     * @return The method is returning a Map object, where the keys are CKMethodResult objects and the
+     * values are Set objects containing strings.
+     */
     private static Map<CKMethodResult, Set<String>> getTestMethods(CKClassResult ckClassResult) {
         Map<CKMethodResult, Set<String>> methodsWithAssertions = new HashMap<CKMethodResult, Set<String>>();
 
@@ -116,12 +124,26 @@ public class ClassResult implements Result {
         return methodsWithAssertions;
     }
 
+    /**
+     * The function returns a set of assertions from a given method's invocations.
+     * 
+     * @param m A CKMethodResult object, which represents the result of a method analysis in the CK
+     * code metrics library. It contains information about the method, such as its name, type, and
+     * invocations.
+     * @return The method is returning a Set of Strings.
+     */
     private static Set<String> getAssertionsFromMethodInvocations(CKMethodResult m) {
         return m.getMethodInvocations().stream()
                 .filter(i -> isInvocationAssertion(i))
                 .collect(Collectors.toSet());
     }
 
+    /**
+     * The function checks if a given invocation contains any of the specified assertions.
+     * 
+     * @param invocation The `invocation` parameter is a string that represents a method invocation.
+     * @return The method is returning a boolean value.
+     */
     private static boolean isInvocationAssertion(String invocation) {
         return Arrays.stream(ASSERTIONS).anyMatch(invocation::contains);
     }

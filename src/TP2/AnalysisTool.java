@@ -34,6 +34,11 @@ public class AnalysisTool {
 		debugExecTime(startTime);
 	}
 
+	/**
+	 * The `execute` function takes an array of arguments, creates CKClassResults and ClassResults maps,
+	 * retrieves Git information for each class, prints the ClassResults, creates SourceResults, and
+	 * finally creates CSV files for the ClassResults and SourceResults.
+	 */
 	public static void execute(String[] args) throws IOException {
 		Map<String, CKClassResult> results = createCKClassResultsMap(args, false);
         Map<String, ClassResult> myResults = new HashMap<String, ClassResult>();
@@ -95,7 +100,17 @@ public class AnalysisTool {
         return outputFile;
     }
 
-    private static Map<String, CKClassResult> createCKClassResultsMap(String[] runnerArgs, boolean runnerPrintResults) {
+    /**
+	 * The function `createCKClassResultsMap` takes in command line arguments, calculates CK metrics
+	 * for a given project, stores the metrics in a map, and optionally prints the results.
+	 * 
+	 * @param runnerArgs An array of command line arguments passed to the program.
+	 * @param runnerPrintResults A boolean flag indicating whether to print the results or not. If set
+	 * to true, the results will be printed using the `runnerPrintResults` method. If set to false, the
+	 * results will not be printed.
+	 * @return The method is returning a Map<String, CKClassResult> object.
+	 */
+	private static Map<String, CKClassResult> createCKClassResultsMap(String[] runnerArgs, boolean runnerPrintResults) {
         if (runnerArgs == null || runnerArgs.length < 1) {
 			System.out.println("Usage java -jar ck.jar <path to project> <use Jars=true|false> <max files per partition, 0=automatic selection> <print variables and fields metrics? True|False> <path to save the output files>");
 			System.exit(1);
@@ -162,7 +177,20 @@ public class AnalysisTool {
         return results;
     }
 
-    private static void runnerPrintResults(Map<String, CKClassResult> results, String outputDir, boolean variablesAndFields) throws IOException {
+    /**
+	 * The function takes a map of CKClassResult objects, an output directory, and a boolean flag as
+	 * parameters, and writes the metrics values of each component in the map to separate CSV files in
+	 * the specified output directory.
+	 * 
+	 * @param results A map containing the results of the code analysis. The keys are the names of the
+	 * classes, and the values are CKClassResult objects that contain the metrics for each class.
+	 * @param outputDir The output directory where the CSV files will be written to.
+	 * @param variablesAndFields A boolean value indicating whether to include variables and fields in
+	 * the output files. If set to true, the metrics for variables and fields will be included in the
+	 * "variable.csv" and "field.csv" files respectively. If set to false, these metrics will not be
+	 * included.
+	 */
+	private static void runnerPrintResults(Map<String, CKClassResult> results, String outputDir, boolean variablesAndFields) throws IOException {
         ResultWriter writer = new ResultWriter(outputDir + "class.csv", outputDir + "method.csv", outputDir + "variable.csv", outputDir + "field.csv", variablesAndFields);
 
         // // Write the metrics value of each component in the csv files
@@ -173,6 +201,12 @@ public class AnalysisTool {
 		// writer.flushAndClose();
     }
 
+	/**
+	 * The function calculates and prints the execution time of a code block in seconds.
+	 * 
+	 * @param startTime The startTime parameter is the starting time of the execution of a certain code
+	 * block or method. It is typically obtained using the System.currentTimeMillis() method.
+	 */
 	private static void debugExecTime(long startTime) {
 		long totTime = System.currentTimeMillis() - startTime;
 

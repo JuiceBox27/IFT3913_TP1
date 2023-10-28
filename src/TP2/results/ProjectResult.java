@@ -12,6 +12,14 @@ public class ProjectResult extends SourceResult {
         this.codeTestsLocRatio = codeTestsLocRatio(results, testsLoc);
     }
 
+    /**
+     * The function calculates the ratio of lines of code to lines of test code.
+     * 
+     * @param results The parameter "results" is a map where the keys are strings representing class
+     * names and the values are objects of type ClassResult.
+     * @param testsLoc The parameter "testsLoc" represents the total lines of code in the tests.
+     * @return The method is returning a double value.
+     */
     private double codeTestsLocRatio(Map<String, ClassResult> results, int testsLoc) {
 		return (double)loc / (double)testsLoc;
 	}
@@ -32,6 +40,7 @@ public class ProjectResult extends SourceResult {
             + ", " + loc
             + ", " + qtMethods
             + ", " + codeTestsLocRatio
+            + ", " + locPerMethod
         ;
     }
 }
