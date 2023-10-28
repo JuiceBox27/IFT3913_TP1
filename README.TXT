@@ -2,9 +2,13 @@
 
 Noms: Stefan Roman, Simo Hakim
 
-https://github.com/JuiceBox27/IFT3913_TP1
+https://github.com/JuiceBox27/IFT3913_TP1/tree/TP2_V2
 
 Librairie utilisée: https://github.com/mauricioaniche/ck 
+
+## Pour voir les résultats de l'étude jfreechart il suffit d'aller dans le dossier etude-jfreechart et voir les trois fichiers de résultats que l'application génère.
+
+## Pour accéder au projet il suffit de suivre les étapes de création de jars.
 
 ## Création des jars
 
@@ -12,7 +16,7 @@ Toutes les commandes sont assumées du root du projet.
 
 ### Premièrement compiler le code en classes
 
-javac ./src/TP2/*.java -d ./bin/ -cp ./lib/* -sourcepath ./src
+javac ./src/TP2/*.java -d ./bin/TP2/* -cp ./lib/* -sourcepath ./src/TP2/
 
 ### Deuxièmement créer les jars
 
@@ -23,6 +27,8 @@ jar cvfe jars/AnalysisTool.jar tp2.AnalysisTool -C bin/ tp2/ lib/
 java -jar AnalysisTool.jar <chemin-de-l'entrée> <dossier-à-la-sortie.csv>
 
 ex.: java -jar AnalysisTool.jar ../../jfreechart/src/ ./etude-jfreechart
+
+Il est nécessaire d'avoir l'outil de ligne de commande git pour utiliser le programme.
 
 Veuillez prévoir un peu de temps pour laisser le programme s'exécuter. Il a un temps moyen de 150 secondes (2min30).
 Il semblait raisonnable comme temps tenant compte que plusieurs outils d'analyse de code ont un temps similaire pour des projets de taille similaires.
