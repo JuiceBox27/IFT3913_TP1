@@ -1,2 +1,0 @@
-Nous avons travailler beaucoup plus sur Word et Excel et le partage de fichier est vraiment suboptimal avec git avec ces plateformes.
-Ainsi nous avons fait usage du partage de fichiers natifs de Word et Excel.
