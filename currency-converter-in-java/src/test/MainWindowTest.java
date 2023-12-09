@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,6 +19,7 @@ public class MainWindowTest {
 
     Currency testCadCurrency;
     Currency testAudCurrency;
+    double testAmount = 100.07d;
 
     @BeforeEach
     void setUp() {
@@ -59,7 +61,101 @@ public class MainWindowTest {
         // Test the path without the loops with an empty currencies list.
         assertNotEquals((500000.00 * 0.93), MainWindow.convert("US Dollar", "Euro", new ArrayList<Currency>(), 500000.00), 0.01d);
     }
+    @Test
+    void testConvertValidAmountInvalidCurrency() {
+        // Montants valides avec une devise invalide
+        double[] validAmounts = {0, 1, 500000, 1000000};
+        String invalidCurrency = "Nonexistent Currency";
+        
+        Arrays.stream(validAmounts).forEach(amount -> {
+            double result = MainWindow.convert("CA Dollar", invalidCurrency, allCurrencies, amount);
+            assertEquals(0.0, result, 0.01);
+        });
+    }
+    
+    @Test
+    void testConvertValidAmountValidCurrency() {
+        // Montants valides avec une devise valide
+        double[] validAmounts = {0, 1, 500000, 1000000};
+        String validCurrency = "USD";
 
+        Arrays.stream(validAmounts).forEach(amount -> {
+            double result = MainWindow.convert("CA Dollar", validCurrency, allCurrencies, amount);
+            assertEquals(amount * 11.0, result, 0.01);
+        });
+    }
+
+    @Test
+    void testConvertInvalidAmountInvalidCurrency() {
+        // Montants invalides avec une devise invalide
+        double[] invalidAmounts = {-1000000, -2, -1.01, 1000001, 2000000};
+        String invalidCurrency = "Nonexistent Currency";
+
+        Arrays.stream(invalidAmounts).forEach(amount -> {
+            double result = MainWindow.convert("CA Dollar", invalidCurrency, allCurrencies, amount);
+            assertEquals(0.0, result, 0.01);
+        });
+    }
+
+    @Test
+    void testConvertInvalidAmountValidCurrency() {
+        // Montants invalides avec une devise valide
+        double[] invalidAmounts = {-1000000, -2, -1.01, 1000001, 2000000};
+        String validCurrency = "USD";
+
+        Arrays.stream(invalidAmounts).forEach(amount -> {
+            double result = MainWindow.convert("CA Dollar", validCurrency, allCurrencies, amount);
+            assertEquals(amount * 11.0, result, 0.01);
+        });
+    }
+
+    @Test
+    void testConvertCalculation() {
+        double[] validAmounts = {0, 1, 500000, 1000000};
+        String sourceCurrency = "USD";
+        String targetCurrency = "CAD";
+
+        Arrays.stream(validAmounts).forEach(amount -> {
+            double result = MainWindow.convert(sourceCurrency, targetCurrency, allCurrencies, amount);
+            assertEquals(amount * 11.0, result, 0.01);
+        });
+    }
+
+    @Test
+    void testConvertNormalCase() { // Normal Case
+        double result = MainWindow.convert("CA Dollar", "AU Dollar", allCurrencies, testAmount);
+        assertEquals(3302.31, result, 0.01);
+    }
+
+    @Test
+    void testConvertZeroAmount() { // Zero Amount
+        double result = MainWindow.convert("CA Dollar", "AU Dollar", allCurrencies, 0.0);
+        assertEquals(0.0, result, 0.01);
+    }
+
+    @Test
+    void testConvertEmptyCurrencyList() { // Empty Currency List
+        double result = MainWindow.convert("CA Dollar", "AU Dollar", new ArrayList<Currency>(), testAmount);
+        assertEquals(0.0, result, 0.01);
+    }
+
+    @Test
+    void testConvertNoCurrency1() { // Non-existent Source Currency
+        double result = MainWindow.convert("Nonexistent Currency", "AU Dollar", allCurrencies, testAmount);
+        assertEquals(0.0, result, 0.01);
+    }
+
+    @Test
+    void testConvertNoCurrency2() { // Non-existent Target Currency also test shortNameCurrency2 null
+        double result = MainWindow.convert("CA Dollar", "Nonexistent Currency", allCurrencies, testAmount);
+        assertEquals(0.0, result, 0.01);
+    }
+
+    @Test
+    void testConvertNoCurrencies() { // Non-existent Target Currency also test shortNameCurrency2 null
+        double result = MainWindow.convert("Nonexistent Currency", "Nonexistent Currency", allCurrencies, testAmount);
+        assertEquals(0.0, result, 0.01);
+    }
     // Create the currencies list from the app.
     // Add the 
     private void setUpCurrencies() {
