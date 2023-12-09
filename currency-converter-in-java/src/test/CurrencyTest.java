@@ -1,19 +1,10 @@
 package test;
 
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assume.assumeTrue;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
-
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -29,13 +20,12 @@ public class CurrencyTest {
     List<String> acceptedCurrencies;
     List<String> unacceptedCurrencies;
 
-
     @BeforeEach
     void setUp() {
         // testCurrencies = List.of("USD", "EUR", "GBP", "CHF", "CNY", "JPY");
         testCurrencies = List.of("USD", "EUR", "GBP", "CHF", "CNY", "JPY", "CAD");
         acceptedCurrencies = List.of("USD", "CAD", "GBP", "EUR", "CHF", "AUD");
-        unacceptedCurrencies = Lidt.of.asList("JPY", "CNY");
+        unacceptedCurrencies = List.of("JPY", "CNY");
         testCadCurrency = new Currency("CA Dollar", "CAD");
 
         testCadCurrency.setExchangeValues("USD", 1.00);
@@ -61,37 +51,39 @@ public class CurrencyTest {
         );
     }
 
-    @Test
-    public void testAcceptedCurrencies() {
-        assertAll("Testing accepted currencies",
-            () -> currencies.forEach(currency ->
-                acceptedCurrencies.forEach(ac ->
-                    assertNotNull(currency.getExchangeValues().get(ac), 
-                                  "Currency not supported: " + ac)
-                )
-            )
-        );
+        @Test
+    void testConvertNormalCase() { // Cas normal
+        double result = Currency.convert(100.0, 1.5);
+        assertEquals(150.0, result, 0.01);
     }
 
     @Test
-    public void testUnacceptedCurrencies() {
-        assertAll("Testing unaccepted currencies",
-            () -> currencies.forEach(currency ->
-                unacceptedCurrencies.forEach(uc ->
-                    assertNull("Currency should not be supported: " + uc,
-                               currency.getExchangeValues().get(uc))
-                )
-            )
-        );
+    void testConvertZeroExchangeValue() { // Cas avec un taux d'échange nul
+        double result = Currency.convert(100.0, 0.0);
+        assertEquals(0.0, result, 0.01);
     }
-    // A black box test of the types of currencies accepted.
-    // @Test
-    // public void testCurrencies() {
 
-    //     assertAll(
-    //         () -> testCurrencies.stream().forEach(tc -> 
-    //                 assertTrue(currencies.stream().map(c -> 
-    //                     c.getShortName()).collect(Collectors.toList()).contains(tc)))
-    //     );
-    // }
+    @Test
+    void testConvertZeroAmount() { // Cas avec un montant nul
+        double result = Currency.convert(0.0, 1.5);
+        assertEquals(0.0, result, 0.01);
+    }
+
+    @Test
+    void testConvertBothZeroAmounts() { // Cas avec les deux montants nuls
+        double result = Currency.convert(0.0, 0.0);
+        assertEquals(0.0, result, 0.01);
+    }
+
+    @Test
+    void testConvertNegativeAmount() { // Cas avec un montant négatif
+        double result = Currency.convert(-100.0, 1.5);
+        assertEquals(-150.0, result, 0.01);
+    }
+
+    @Test
+    void testConvertNegativeExchangeValue() { // Cas avec un taux d'échange négatif
+        double result = Currency.convert(100.0, -1.5);
+        assertEquals(-150.0, result, 0.01);
+    }
 }
