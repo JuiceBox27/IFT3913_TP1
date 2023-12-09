@@ -77,7 +77,7 @@ public class MainWindowTest {
     void testConvertValidAmountValidCurrency() {
         // Montants valides avec une devise valide
         double[] validAmounts = {0, 1, 500000, 1000000};
-        String validCurrency = "USD";
+        String validCurrency = "AUD";
 
         Arrays.stream(validAmounts).forEach(amount -> {
             double result = MainWindow.convert("CA Dollar", validCurrency, allCurrencies, amount);
@@ -112,12 +112,12 @@ public class MainWindowTest {
     @Test
     void testConvertCalculation() {
         double[] validAmounts = {0, 1, 500000, 1000000};
-        String sourceCurrency = "USD";
-        String targetCurrency = "CAD";
+        String sourceCurrency = "AUD";
+        String targetCurrency = "CAD";        
 
         Arrays.stream(validAmounts).forEach(amount -> {
             double result = MainWindow.convert(sourceCurrency, targetCurrency, allCurrencies, amount);
-            assertEquals(amount * 11.0, result, 0.01);
+            assertEquals(amount * 33.0, result, 0.01);
         });
     }
 
