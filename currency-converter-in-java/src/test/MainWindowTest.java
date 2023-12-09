@@ -1,6 +1,7 @@
 package test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 import java.util.ArrayList;
 
@@ -18,8 +19,6 @@ public class MainWindowTest {
     Currency testCadCurrency;
     Currency testAudCurrency;
 
-    double testAmount = 500000;
-
     @BeforeEach
     void setUp() {
         setUpCurrencies();
@@ -28,19 +27,21 @@ public class MainWindowTest {
     
     @Test
     void testConvertBlackBox() {
+        double testAmount = 500000;
+
+        // Domain tests for the default currencies of the app and the currencies that do not exist in this default configuration.
         assertEquals((testAmount * 0.93d), MainWindow.convert("US Dollar", "Euro", appCurrencies, testAmount), 0.01d);
         assertEquals(0, MainWindow.convert("US Dollar", "AU Dollar", appCurrencies, testAmount), 0.01d);
         assertEquals(0, MainWindow.convert("CA Dollar", "Euro", appCurrencies, testAmount), 0.01d);
         assertEquals(0, MainWindow.convert("CA Dollar", "Euro", appCurrencies, testAmount), 0.01d);
 
+        // Domain tests for all the currencies.
         assertEquals((testAmount * 0.93d), MainWindow.convert("US Dollar", "Euro", allCurrencies, testAmount), 0.01d);
         assertEquals((testAmount * 88.00d), MainWindow.convert("US Dollar", "AU Dollar", allCurrencies, testAmount), 0.01d);
         assertEquals((testAmount * 22.00d), MainWindow.convert("CA Dollar", "Euro", allCurrencies, testAmount), 0.01d);
         assertEquals((testAmount * 33.00d), MainWindow.convert("CA Dollar", "AU Dollar", allCurrencies, testAmount), 0.01d);
-    }
 
-    @Test
-    void testConvertWhiteBox() {
+        // Domain and limit values tests of the amount.
         assertEquals((-1000000.00 * 0.93), MainWindow.convert("US Dollar", "Euro", appCurrencies, -1000000.00), 0.01d);
         assertEquals((-1.00 * 0.93), MainWindow.convert("US Dollar", "Euro", appCurrencies, -1.00), 0.01d);
         assertEquals(0, MainWindow.convert("US Dollar", "Euro", appCurrencies, 0.00), 0.01d);
@@ -48,6 +49,15 @@ public class MainWindowTest {
         assertEquals((1000000.00 * 0.93), MainWindow.convert("US Dollar", "Euro", appCurrencies, 1000000.00), 0.01d);
         assertEquals((1000001.00 * 0.93), MainWindow.convert("US Dollar", "Euro", appCurrencies, 1000001.00), 0.01d);
         assertEquals((2000000.00 * 0.93), MainWindow.convert("US Dollar", "Euro", appCurrencies, 2000000.00), 0.01d);
+    }
+
+    @Test
+    void testConvertWhiteBox() {
+        // Test the path with the loops.
+        assertEquals((500000.00 * 0.93), MainWindow.convert("US Dollar", "Euro", appCurrencies, 500000.00), 0.01d);
+
+        // Test the path without the loops with an empty currencies list.
+        assertNotEquals((500000.00 * 0.93), MainWindow.convert("US Dollar", "Euro", new ArrayList<Currency>(), 500000.00), 0.01d);
     }
 
     // Create the currencies list from the app.
