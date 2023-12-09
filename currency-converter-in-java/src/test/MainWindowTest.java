@@ -71,7 +71,6 @@ public class MainWindowTest {
             double result = MainWindow.convert("CA Dollar", invalidCurrency, allCurrencies, amount);
             assertEquals(0.0, result, 0.01);
         });
-
     }
     
     @Test
@@ -159,7 +158,6 @@ public class MainWindowTest {
     }
     
     // Create the currencies list from the app.
-    // Add the 
     private void setUpCurrencies() {
         testCadCurrency = new Currency("CA Dollar", "CAD");
         testAudCurrency = new Currency("AU Dollar", "AUD");
