@@ -176,7 +176,7 @@ public class MainWindow extends JFrame {
 		Double price = 0.0;
 		
 		// Find shortname for the second currency
-		for (Integer i = 0; i < currencies.size(); i++) {
+		for (Integer i = 0; i < currencies.size(); i++) {	
 			if (currencies.get(i).getName() == currency2) {
 				shortNameCurrency2 = currencies.get(i).getShortName();
 				break;

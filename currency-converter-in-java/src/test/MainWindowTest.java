@@ -18,7 +18,7 @@ public class MainWindowTest {
     Currency testCadCurrency;
     Currency testAudCurrency;
 
-    double testAmount = 100.07d;
+    double testAmount = 500000;
 
     @BeforeEach
     void setUp() {
@@ -37,15 +37,21 @@ public class MainWindowTest {
         assertEquals((testAmount * 88.00d), MainWindow.convert("US Dollar", "AU Dollar", allCurrencies, testAmount), 0.01d);
         assertEquals((testAmount * 22.00d), MainWindow.convert("CA Dollar", "Euro", allCurrencies, testAmount), 0.01d);
         assertEquals((testAmount * 33.00d), MainWindow.convert("CA Dollar", "AU Dollar", allCurrencies, testAmount), 0.01d);
-
-        
     }
 
     @Test
     void testConvertWhiteBox() {
-        MainWindow.convert("USD", "EUR", appCurrencies, 100.0d);
+        assertEquals((-1000000.00 * 0.93), MainWindow.convert("US Dollar", "Euro", appCurrencies, -1000000.00), 0.01d);
+        assertEquals((-1.00 * 0.93), MainWindow.convert("US Dollar", "Euro", appCurrencies, -1.00), 0.01d);
+        assertEquals(0, MainWindow.convert("US Dollar", "Euro", appCurrencies, 0.00), 0.01d);
+        assertEquals((500000.00 * 0.93), MainWindow.convert("US Dollar", "Euro", appCurrencies, 500000.00), 0.01d);
+        assertEquals((1000000.00 * 0.93), MainWindow.convert("US Dollar", "Euro", appCurrencies, 1000000.00), 0.01d);
+        assertEquals((1000001.00 * 0.93), MainWindow.convert("US Dollar", "Euro", appCurrencies, 1000001.00), 0.01d);
+        assertEquals((2000000.00 * 0.93), MainWindow.convert("US Dollar", "Euro", appCurrencies, 2000000.00), 0.01d);
     }
 
+    // Create the currencies list from the app.
+    // Add the 
     private void setUpCurrencies() {
         testCadCurrency = new Currency("CA Dollar", "CAD");
         testAudCurrency = new Currency("AU Dollar", "AUD");
